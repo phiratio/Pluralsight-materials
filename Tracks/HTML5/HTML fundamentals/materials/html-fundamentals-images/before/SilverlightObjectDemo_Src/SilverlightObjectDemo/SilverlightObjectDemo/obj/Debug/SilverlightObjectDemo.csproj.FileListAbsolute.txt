@@ -1,0 +1,12 @@
+E:\Courses\HTML\exercises\html-fundamentals-images\before\SilverlightObjectDemo\SilverlightObjectDemo\SilverlightObjectDemo\Bin\Debug\SilverlightObjectDemo.dll
+E:\Courses\HTML\exercises\html-fundamentals-images\before\SilverlightObjectDemo\SilverlightObjectDemo\SilverlightObjectDemo\Bin\Debug\SilverlightObjectDemo.pdb
+E:\Courses\HTML\exercises\html-fundamentals-images\before\SilverlightObjectDemo\SilverlightObjectDemo\SilverlightObjectDemo\Bin\Debug\AppManifest.xaml
+E:\Courses\HTML\exercises\html-fundamentals-images\before\SilverlightObjectDemo\SilverlightObjectDemo\SilverlightObjectDemo\Bin\Debug\SilverlightObjectDemo.xap
+E:\Courses\HTML\exercises\html-fundamentals-images\before\SilverlightObjectDemo\SilverlightObjectDemo\SilverlightObjectDemo\Bin\Debug\SilverlightObjectDemoTestPage.html
+E:\Courses\HTML\exercises\html-fundamentals-images\before\SilverlightObjectDemo\SilverlightObjectDemo\SilverlightObjectDemo\obj\Debug\ResolveAssemblyReference.cache
+E:\Courses\HTML\exercises\html-fundamentals-images\before\SilverlightObjectDemo\SilverlightObjectDemo\SilverlightObjectDemo\obj\Debug\App.g.i.cs
+E:\Courses\HTML\exercises\html-fundamentals-images\before\SilverlightObjectDemo\SilverlightObjectDemo\SilverlightObjectDemo\obj\Debug\MainPage.g.i.cs
+E:\Courses\HTML\exercises\html-fundamentals-images\before\SilverlightObjectDemo\SilverlightObjectDemo\SilverlightObjectDemo\obj\Debug\SilverlightObjectDemo.g.resources
+E:\Courses\HTML\exercises\html-fundamentals-images\before\SilverlightObjectDemo\SilverlightObjectDemo\SilverlightObjectDemo\obj\Debug\SilverlightObjectDemo.dll
+E:\Courses\HTML\exercises\html-fundamentals-images\before\SilverlightObjectDemo\SilverlightObjectDemo\SilverlightObjectDemo\obj\Debug\SilverlightObjectDemo.pdb
+E:\Courses\HTML\exercises\html-fundamentals-images\before\SilverlightObjectDemo\SilverlightObjectDemo\SilverlightObjectDemo\obj\Debug\XapCacheFile.xml
