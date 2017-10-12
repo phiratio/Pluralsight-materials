@@ -1,11 +1,11 @@
 {
-    "name": "PeepCode-HTML5-Offline-Caching"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "> 0"
-  }
-  , "scripts": {
-    "start": "npm install && node server.js"
-  }  
+    "name": "PeepCode-HTML5-Offline-Caching",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "^4.16.2"
+    },
+    "scripts": {
+        "start": "npm install && node server.js"
+    }
 }
