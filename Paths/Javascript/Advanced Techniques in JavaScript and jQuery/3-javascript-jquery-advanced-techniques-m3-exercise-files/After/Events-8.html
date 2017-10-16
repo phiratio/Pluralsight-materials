@@ -24,20 +24,22 @@
 	</body>
 	<script>
 	$(function()
-	{	var showEventMessage = function(options)
+	{	let showEventMessage = function(options)
 			{	options = $.extend( 
 				{	eventType: 'click',
 					eventTarget: this,
 					suffix: '<br/>'
 				}, options);
-				var message = options.eventType + ': ' +
+				let message = options.eventType + ': ' +
 							  (options.eventTarget.nodeName || 'unknown') +
 							  options.suffix;
 				$('#Messages').append(message);
 			},
 			internalObject = { records: [], maxCount: 5 },
 			loadRecord = function()
-			{	var id = internalObject.records.length;
+			{
+                let id;
+                id = internalObject.records.length;
 				if (id < internalObject.maxCount)
 				{	internalObject.records.push(
 					{	'description': 'Record id ' + id,
@@ -51,7 +53,7 @@
 		
 		$('.clickable')
 			.on('click', function(event)
-			{	var $this = $(this),
+			{	let $this = $(this),
 					clickCount = ($this.data('clickcount') || 0) +1;
 			
 				$this.data('clickcount', clickCount);
