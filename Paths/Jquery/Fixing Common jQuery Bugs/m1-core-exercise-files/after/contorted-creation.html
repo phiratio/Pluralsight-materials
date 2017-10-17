@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Contorted Creation Bug</title>
+</head>
+<body>
+    <section id="output"></section>
+    <script src="Scripts/jquery.min.js"></script>
+    <script id="custom-list" type="text/template">
+        <div>
+            <ul>
+                <li>test 1</li>
+                <li>test 2</li>
+            </ul>
+        </div>
+    </script>
+    <script>
+        $(document).ready(function () {
+            $($("#custom-list").html())
+                .appendTo("#output");
+        });
+    </script>
+</body>
+</html>

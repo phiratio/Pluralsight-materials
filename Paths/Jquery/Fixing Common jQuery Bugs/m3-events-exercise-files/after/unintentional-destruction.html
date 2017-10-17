@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        .circle {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .highlight {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="shapes">
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <script src="Scripts/jquery.min.js"></script>
+    <script>
+        $("#shapes").on("click", function () {
+            $(this).css({
+                backgroundColor: '#' + Math.floor(Math.random() * 16777215).toString(16)
+            });
+        });
+
+        $("#shapes").on("click.shape dblclick", ".circle", function(e) {
+            $(this).clone(true).appendTo("#shapes");
+            if (e.type === "dblclick") {
+                $(e.delegateTarget).off("click.shape");
+            }
+        });
+    </script>
+</body>
+</html>

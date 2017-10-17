@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <label for="attendee-name">Attendee Name</label>
+    <input id="attendee-name" type="text"></input>
+    <button id="register" data-target="#attendee-name">Register</button>​
+    <script src="Scripts/jquery.min.js"></script>
+    <script>
+        var Conference = function( name ) {
+            this.name = name;
+            this.attendees = [];
+        };
+
+        Conference.prototype.register = function( e ) {
+            var $attendee = $( $( e.target ).data( "target" ) );
+
+            this.attendees.push( $attendee.val() );
+
+            alert( "Thanks for registering for " + this.name + ". " +
+                "There are " + this.attendees.length +
+                " registered thus far." );
+
+            $attendee.val( "" );
+        };
+
+        var conference = new Conference( "JavaScript Code Camp" );
+
+        $( document ).ready( function() {
+            $( "#register" ).on( "click", conference.register );
+        });
+    </script>
+</body>
+</html>

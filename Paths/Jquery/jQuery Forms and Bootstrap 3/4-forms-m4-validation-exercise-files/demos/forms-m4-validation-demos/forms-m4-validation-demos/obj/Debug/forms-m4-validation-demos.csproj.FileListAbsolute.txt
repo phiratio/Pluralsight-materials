@@ -1,0 +1,5 @@
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m4-validation\demos\forms-m4-validation-demos\forms-m4-validation-demos\bin\forms-m4-validation-demos.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m4-validation\demos\forms-m4-validation-demos\forms-m4-validation-demos\bin\forms-m4-validation-demos.pdb
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m4-validation\demos\forms-m4-validation-demos\forms-m4-validation-demos\obj\Debug\forms-m4-validation-demos.csprojResolveAssemblyReference.cache
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m4-validation\demos\forms-m4-validation-demos\forms-m4-validation-demos\obj\Debug\forms-m4-validation-demos.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m4-validation\demos\forms-m4-validation-demos\forms-m4-validation-demos\obj\Debug\forms-m4-validation-demos.pdb

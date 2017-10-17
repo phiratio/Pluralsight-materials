@@ -1,0 +1,33 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.js"></script>
+	<script type="text/javascript" src="log.js"></script>
+	<style>
+		div { width:200px; padding: 5; margin: 3 }
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	
+
+
+	$(function() {
+		$.log.group('my group');
+		$.log('hi there');
+		$.log($("div"));
+		$.log.groupEnd();
+		$.log($("div")[0].innerHTML);
+
+	});
+		
+	</script>
+	
+	<h1>Adding Utility Functions Demo</h1>
+	
+	<div>Div 1</div>
+	<div>Div 2</div>
+	
+	
+</body>
+</html>

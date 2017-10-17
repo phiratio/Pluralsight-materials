@@ -1,0 +1,46 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+	
+</head>
+<body>
+
+<script type="text/javascript" >
+
+	
+$(function() {
+
+	var div1 = $("#div1");
+	
+	var object1 = { val1: 3, val2: "hi" }
+	div1.data("object1", object1);
+	
+	var val1 = div1.data("object1").val1;
+	var val2 = div1.data("object1").val2;
+	
+	var myFunc = function() {
+		console.log("i've called my function");
+	}
+	div1.data("func", myFunc);
+	div1.data("func")();
+	
+	var object2 = { val1: 3, val2: "hi", sayHi: function() {console.log("hi there"); } }
+	div1.data("object2", object2);
+	console.log(div1.data("object2").sayHi);
+	div1.data("object2").sayHi();
+	
+	div1.data("dom", div1.get(0));
+	console.log(div1.data("dom"));
+	
+	div1.data("jq", $("#div1"));
+	console.log(div1.data("jq"));
+	
+	$.data(div1.get(0), "more", 25);
+
+});
+	
+</script>
+	<div id="div1"  />
+	
+</body>
+</html>

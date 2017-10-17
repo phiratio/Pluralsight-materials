@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Autotab Plugin</title>
+
+    <script src="/js/jquery-2.0.2.min.js"></script>
+    <script src="/js/jquery.autotab.min.js"></script>
+    
+    <script type="text/javascript">
+         $(function() {
+             $('.number').autotab('number');
+         });
+     </script>
+</head>
+<body>
+    <div>
+        <label>Phone Number</label>
+        <input type="text" id="areaCode" class="number" maxlength="3" size="3" /> -
+        <input type="text" id="prefix" class="number" maxlength="3" size="3" /> -
+        <input type="text" id="lineNumber" class="number" maxlength="4" size="5" />
+    </div>
+</body>
+</html>

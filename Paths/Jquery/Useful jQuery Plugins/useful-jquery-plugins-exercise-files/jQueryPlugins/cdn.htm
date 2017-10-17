@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CDNs</title>
+
+    <!--<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script> -->
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+    <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.10.2.min.js"></script>
+
+    <!-- Fallback to use a local copy if the CDN does not load properly -->
+    <script>
+        !window.jQuery && document.write('<script src="/js/jquery-1.10.2.min.js"><\/script>');
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            alert("Ready Function");
+        });
+    </script>
+</head>
+<body>
+     <!-- Non CDN 
+        <img src="/images/FlagSmall.jpg" />
+    -->
+
+    <!-- CDN example, subdomain of your own domain... Commented because this image does not exist, using pluralsight.com as example
+        <img src="http://content.pluralsight.com/FlagSmall.jpg" />
+    -->
+</body>
+</html>

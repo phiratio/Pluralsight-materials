@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Spinner</title>
+
+    <script src="/js/jquery-2.0.2.min.js"></script>
+    <script src="/js/jquery.spin.js"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $("#addToCartButton").on("click", AddToCart);
+        });
+
+        function AddToCart() {
+            var opts = {
+                lines: 8, // The number of lines to draw
+                speed: 2,
+                radius: 3,
+                length: 3,
+                width: 2,
+                top: -20,
+                zIndex: 10,
+                left: 35
+            };
+            var spin = $("#mySpinner").spin(opts);
+            $("#addToCartButton").css("opacity", "0.3");
+
+            //Do work...  Simulate with setTimeout
+            setTimeout(function () {
+
+                //Restore original button
+                spin.data().spinner.stop();
+                $("#addToCartButton").css("opacity", "1");
+            }, 5000);            
+        }
+     </script>
+</head>
+<body>
+    <input id="addToCartButton" type="submit" value="Add to Cart" />
+    <span id="mySpinner"></span>
+    
+</body>
+</html>

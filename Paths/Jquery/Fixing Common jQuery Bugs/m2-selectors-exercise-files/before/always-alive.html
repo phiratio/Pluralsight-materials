@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script src="Scripts/jquery.min.js"></script>
+    <script>
+        function notify(message) {
+            var $notify = $("#notify");
+
+            if (!$notify) {
+                $("<div />", {
+                    id: "notify",
+                    html: message
+                }).appendTo("body");
+            } else {
+                $notify.html(message);
+            }
+        }
+
+        notify("My 1st Message");
+        notify("My 2nd Message");
+    </script>
+</body>
+</html>

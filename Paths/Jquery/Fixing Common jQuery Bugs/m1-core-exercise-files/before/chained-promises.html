@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="output" hidden><img src="ajax-loader.gif" /></div>
+    <script src="Scripts/jquery.min.js"></script>
+    <script>
+        var promises = [
+            $.getJSON("./contacts.js"),
+            $("#output").fadeIn("slow"),
+            new $.Deferred(function (dfd) {
+                setTimeout(dfd.resolve, 5000);
+                return dfd.promise;
+            })
+        ];
+
+        $.when(promises).then(
+            function (xhr, faded, timer) {
+                faded.html(xhr[0].length + " Contact(s) Found");
+            },
+            function (xhr, status) {
+                $ouput.html("Error retrieving contacts.")
+            }
+        );
+    </script>
+</body>
+</html>

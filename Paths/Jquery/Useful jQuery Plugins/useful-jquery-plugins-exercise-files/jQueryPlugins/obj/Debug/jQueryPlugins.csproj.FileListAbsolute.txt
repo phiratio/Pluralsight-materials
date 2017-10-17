@@ -1,0 +1,4 @@
+C:\inetpub\wwwroot\jQueryPlugins\bin\jQueryPlugins.dll
+C:\inetpub\wwwroot\jQueryPlugins\bin\jQueryPlugins.pdb
+C:\inetpub\wwwroot\jQueryPlugins\obj\Debug\jQueryPlugins.dll
+C:\inetpub\wwwroot\jQueryPlugins\obj\Debug\jQueryPlugins.pdb

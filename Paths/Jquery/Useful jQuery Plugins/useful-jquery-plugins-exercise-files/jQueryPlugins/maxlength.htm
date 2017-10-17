@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Max Length Plugin</title>
+        
+    <script src='/js/jquery-1.10.2.min.js'></script>
+    <script src="/js/jquery.maxlength.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#Comments").maxlength({ 'feedback': '#numCharactersLeft' });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        Characters Left: <span id="numCharactersLeft">20</span><p />
+        <textarea id="Comments" maxlength="20" style="width:200px;"></textarea>
+    </form>
+</body>
+</html>

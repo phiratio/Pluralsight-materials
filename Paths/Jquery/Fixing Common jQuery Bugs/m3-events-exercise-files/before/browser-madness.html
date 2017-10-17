@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <form>
+        <input id="age" type="text" />
+        <input type="submit" value="Validate" />
+    </form>
+    <script src="Scripts/jquery.min.js"></script>
+    <script>
+        $("#age").on("keypress", function (e) {
+            var char = String.fromCharCode(e.charCode);
+            if (!~"0123456789".indexOf(char)) {
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>

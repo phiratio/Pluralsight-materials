@@ -1,0 +1,26 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.js"></script>
+</head>
+<body>
+	
+	<script type="text/javascript">
+
+		console.log(undefined);
+		undefined = 3;
+		console.log(undefined);
+		
+		// in some browsers, undefined will now be 3
+
+		(function($){
+			$.fn.myPlugin = function() {
+				return this;
+			};
+		})(jQuery, undefined);
+		
+		jQuery('div').myPlugin();
+		
+	</script>
+	
+</body>
+</html>

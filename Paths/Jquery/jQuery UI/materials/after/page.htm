@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jQuery UI Widgets I</title>
+    <link href="css/vader/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <script src="scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery.ui.datepicker-fr.js" type="text/javascript"></script>
+    <script src="scripts/page.js" type="text/javascript"></script>    
+</head>
+<body>
+    <h1>
+        jQuery Widgets</h1>
+    <hr />
+    <h3>
+        The dialog</h3>
+    <div id="dialog" title="Attention!!">
+        <img src="danger.jpg" />
+        <p>
+            Are you sure you want to do this?</p>
+    </div>
+    <div id="dialogDecision">
+    </div>
+    <input type="button" value="Click me!" id="openDialog" />
+    <hr />
+    <h3>
+        The Progress Bar</h3>
+    <div id="progress">
+    </div>
+    <div id="countdown">
+    </div>
+    <hr />
+    <h3>
+        The Slider</h3>
+    <div id="slider">
+    </div>
+    <hr />
+    <h3>
+        The Tabs</h3>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tab-1">C#</a></li>
+            <li><a href="#tab-2">LINQ</a></li>
+            <li><a href="#tab-3">jQuery UI</a></li>
+            <li><a href="tab4content.htm">Bonus Content!!</a></li>
+        </ul>
+        <div id="tab-1">
+            <p>
+                C# is Microsoft's entry into the world of managed programming. Using a syntax that
+                is deliberately reminiscient of Java, C++ and C, C# achieves a natural tradeoff
+                of terseness and clarity, enabling programmers to express concepts in a clear and
+                maintainable form. Recent enhancements to the language have made it even more powerful
+                than before, allowing programmers to work with C# in both an object-oriented and
+                partially functional style.</p>
+        </div>
+        <div id="tab-2">
+            <p>
+                Language Integrated Query (LINQ) introduces fundamental changes to the techniques
+                .NET developers will use to access data. LINQ brings general-purpose query facilities
+                to the .NET framework and allows a developer to query data inside of in-memory objects,
+                data inside of relational databases, and data inside of XML using a uniform API
+                and syntax. This course will cover the basics of working with LINQ and C#.</p>
+        </div>
+        <div id="tab-3">
+            <p>
+                jQuery UI builds on top of jQuery to provide themeable UI widgets, drag and drop
+                support, and a variety of animation effects.</p>
+        </div>
+    </div>
+    <hr />
+    <h3>
+        The Accordian</h3>
+    <div id="accordian">
+        <h3>
+            <a href="#">C#</a></h3>
+        <div>
+            <p>
+                C# is Microsoft's entry into the world of managed programming. Using a syntax that
+                is deliberately reminiscient of Java, C++ and C, C# achieves a natural tradeoff
+                of terseness and clarity, enabling programmers to express concepts in a clear and
+                maintainable form. Recent enhancements to the language have made it even more powerful
+                than before, allowing programmers to work with C# in both an object-oriented and
+                partially functional style.</p>
+        </div>
+        <h3 id="linq">
+            <a href="#">LINQ</a></h3>
+        <div>
+            <p>
+                Language Integrated Query (LINQ) introduces fundamental changes to the techniques
+                .NET developers will use to access data. LINQ brings general-purpose query facilities
+                to the .NET framework and allows a developer to query data inside of in-memory objects,
+                data inside of relational databases, and data inside of XML using a uniform API
+                and syntax. This course will cover the basics of working with LINQ and C#.</p>
+        </div>
+        <h3>
+            <a href="#">jQuery UI</a></h3>
+        <div>
+            <p>
+                jQuery UI builds on top of jQuery to provide themeable UI widgets, drag and drop
+                support, and a variety of animation effects.</p>
+        </div>
+    </div>
+    <hr />
+    <h3>
+        The Autocomplete</h3>
+    <div>
+        <label for="search">
+            Search:</label>
+        <input id="search" type="text" />
+    </div>
+    <hr />
+    
+    <h3>The Button</h3>
+    
+    <div id="buttons">
+        <button>A button element</button>
+        <input type="submit" value="An input submit button" />
+        <a href="#">An anchor button</a>
+    </div>
+    
+    <div id="radios">
+        <input type="radio" id="language1" name="language" /><label for="language1">JavaScript</label>
+        <input type="radio" id="language2" name="language" /><label for="language2">C#</label>
+        <input type="radio" id="language3" name="language" /><label for="language3">C++</label>
+    </div>
+    
+    <div id="checks">
+        <input type="checkbox" id="paradigm1" name="paradigm" /><label for="paradigm1">Object Oriented</label>
+        <input type="checkbox" id="paradigm2" name="paradigm" /><label for="paradigm2">Functional</label>
+        <input type="checkbox" id="paradigm3" name="paradigm" /><label for="paradigm3">Procedural</label>
+    </div>
+
+    <hr />
+    <h3>
+        The DatePicker</h3>
+    <div>
+        <input type="text" id="dateselection" />
+    </div>
+  
+</body>
+</html>

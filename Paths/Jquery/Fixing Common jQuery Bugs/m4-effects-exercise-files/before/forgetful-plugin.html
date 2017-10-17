@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="content">
+        <div data-links="training">
+            <a data-name="website" href="http://pluralsight.com">Pluralsight</a>
+        </div>
+        <div data-name="description">
+            <span >Online Training</span>
+        </div>
+        <div>
+            <table></table>
+        </div>
+    </div>
+    <script src="Scripts/jquery.min.js"></script>
+    <script>
+        (function ($) {
+            $.fn.findWithData = function (selector, type, value) {
+                var selected = this.find(selector);
+
+                selected = selected.filter(function () {
+                    return value !== null ?
+                        $(this).data(type) === value :
+                        $(this).data(type) !== null;
+                });
+
+                return selected;
+            };
+        }(jQuery));
+
+        $("#content")
+            .findWithData("div", "links", "training")
+                .css("background-color", "red")
+                .end()
+            .css("background-color", "#ccc");
+    </script>
+</body>
+</html>

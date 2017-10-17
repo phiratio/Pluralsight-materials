@@ -1,0 +1,5 @@
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m6-components\demos\forms-m6-components\bin\forms-m6-components.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m6-components\demos\forms-m6-components\bin\forms-m6-components.pdb
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m6-components\demos\forms-m6-components\obj\Debug\forms-m6-components.csprojResolveAssemblyReference.cache
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m6-components\demos\forms-m6-components\obj\Debug\forms-m6-components.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m6-components\demos\forms-m6-components\obj\Debug\forms-m6-components.pdb

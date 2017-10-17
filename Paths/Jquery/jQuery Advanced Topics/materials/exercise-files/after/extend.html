@@ -1,0 +1,40 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+
+		var animal = {
+			actions: {
+				eat: function() { console.log("I'm eating"); },
+				sit: function() { console.log("I'm sitting"); }
+			}
+		}
+		
+		var dog = {
+			actions: {
+				bark: function() { console.log("I'm barking"); },
+				dig: function() { console.log("I'm digging"); }
+			}
+			
+		}
+		
+		
+		dog.actions.bark();
+		dog.actions.dig();
+		$.extend(true, dog, animal);
+		dog.actions.eat();
+		dog.actions.sit();
+		console.log(dog.actions.bark);
+		
+		
+		
+		
+	</script>
+	
+	<h1>Extend Demo</h1>
+	
+	
+</body>
+</html>

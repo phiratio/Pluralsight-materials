@@ -1,0 +1,35 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+	
+</head>
+<body>
+
+<script type="text/javascript" >
+
+	
+$(function() {
+
+	var myFunc = function() {
+		console.log("i've called my function");
+		return "my func was called";
+	}
+	
+	var div1 = $("#div1");
+	var myobj = { val1 : 3, val2: "hi", sayHi: function() { console.log("hi there"); } };
+	div1.data("myObj", myobj)
+	div1.data("jq", $("#div1"))
+	div1.data("dom", $("#div1")[0])
+	div1.data("func", myFunc)
+	
+	console.log(div1.data());
+	div1.removeData();
+	console.log(div1.data());
+	
+});
+	
+</script>
+	<div id="div1"  />
+	
+</body>
+</html>

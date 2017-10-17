@@ -1,0 +1,57 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+
+</head>
+<body>
+
+<script type="text/javascript" >
+
+function createDivs() {
+	var arrLen = 10000;
+	var arr = [arrLen];
+	for(var i=0; i<arrLen; i++) {
+		arr[i] = i;
+	}
+	
+	var str = "";
+	$.each(arr, function() {
+		str += "<div>" + this + "</div>";
+	});
+	$('#parent').append('<div>' + str + '</div>');
+}
+
+	
+$(function() {
+	
+	createDivs();
+	
+	console.time("no caching");	
+	var divs = $("div");
+	for(var j=0; j<divs.length; j++) {
+		sum += j;
+	}
+	console.timeEnd("no caching");
+	
+	
+	console.time("caching");
+	var sum = 0;
+	var divs = $("div");
+	var len = divs.length;
+	for(var j=0; j<len; j++) {
+		
+		sum += j;
+	}
+	console.timeEnd("caching");
+	
+});
+
+	
+</script>
+
+	<div id="parent" >
+
+	</div>
+	
+</body>
+</html>

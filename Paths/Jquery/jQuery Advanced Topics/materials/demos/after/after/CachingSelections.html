@@ -1,0 +1,39 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+
+</head>
+<body>
+
+<script type="text/javascript" >
+
+	
+$(function() {
+	
+	// BAD
+	console.time("no caching");
+	for(var i=0; i<10000; i++) {
+		var s = $("div");
+	}
+	console.timeEnd("no caching");
+	
+	
+	// GOOD
+	console.time("caching");
+	var myDiv = $("div");
+	for(var i=0; i<10000; i++) {
+		var s = myDiv;
+	}
+	console.timeEnd("caching");
+	
+});
+
+	
+</script>
+
+	<div id="myDiv" >
+
+	</div>
+	
+</body>
+</html>

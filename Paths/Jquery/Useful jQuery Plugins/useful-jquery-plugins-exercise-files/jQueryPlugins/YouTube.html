@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>YouTube Player</title>
+
+    <link rel="stylesheet" href="/css/ytv.css" type="text/css" media="screen" />
+
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/ytv.js"></script> 
+    
+    <script type="text/javascript">
+        $(function () {
+            $('#frame').ytv({
+                user: 'pluralsight',
+                browsePlaylists: true,
+                controls: true,
+                autoplay: false,
+                fullscreen: true
+            });
+        });
+    </script>   
+</head>
+<body>
+    <div id="frame"></div>
+</body>
+</html>

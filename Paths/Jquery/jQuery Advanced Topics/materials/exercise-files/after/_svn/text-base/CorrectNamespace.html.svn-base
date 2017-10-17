@@ -1,0 +1,24 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.js"></script>
+	<script type="text/javascript" src="emphasize-namespace.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	$(function() {
+		$("#emphasize").click(function() { $('#div1').emphasize(); });
+		$("#deemphasize").click(function() { $('#div1').emphasize('deEmphasize'); });
+	});
+		
+	</script>
+	
+	<h1>Correct Namespaces</h1>
+	
+	<div id="div1">This is some content that I can emphasize or deemphasize</div>
+	
+	<input type="button" id="emphasize" value="Emphasize" /><br />
+	<input type="button" id="deemphasize" value="Deemphasize" />
+	
+</body>
+</html>

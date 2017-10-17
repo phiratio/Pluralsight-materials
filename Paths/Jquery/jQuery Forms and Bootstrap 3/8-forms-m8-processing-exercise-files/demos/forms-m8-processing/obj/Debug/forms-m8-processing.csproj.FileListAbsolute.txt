@@ -1,0 +1,5 @@
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m8-processing\demos\forms-m8-processing\bin\forms-m8-processing.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m8-processing\demos\forms-m8-processing\bin\forms-m8-processing.pdb
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m8-processing\demos\forms-m8-processing\obj\Debug\forms-m8-processing.csprojResolveAssemblyReference.cache
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m8-processing\demos\forms-m8-processing\obj\Debug\forms-m8-processing.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m8-processing\demos\forms-m8-processing\obj\Debug\forms-m8-processing.pdb

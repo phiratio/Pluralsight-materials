@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>.required { border: 1px solid red; }</style>
+</head>
+<body>
+    <form id="personForm" name="personForm" method="post" 
+        action="/Demo/jsf/main.jsf;jsessionid=0596FB948C236D0FFC162223" 
+        enctype="application/x-www-form-urlencoded">
+        <div class="field">
+            <label>Last Name</label>
+            <input id="personForm:lastname" 
+                name="personForm:lastname" type="text" />
+        </div>
+        <div class="field">
+            <label>First Name</label> 
+            <input id="personForm:firstname" 
+                name="personForm:firstname" type="text" />
+        </div>
+        <div class="field">
+            <label>Address</label>
+            <input id="personForm:address" 
+                name="personForm:address" type="text" />
+        </div>
+        <!-- ... more HTML ... -->
+    </form>
+    <script src="Scripts/jquery-2.0.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#personForm\\:firstname").addClass("required");
+        });
+    </script>
+</body>
+</html>

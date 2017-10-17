@@ -1,0 +1,62 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+	
+</head>
+<body>
+
+<script type="text/javascript" >
+
+var bullet = {
+	shoot: function() {
+		bullet.shot = $.Deferred();
+		$b = $("#bullet");
+		$b.css({"left":"110px"}).show();
+		$b.animate({"left":"580px"}, 2000, bullet.shotFinished);
+		return bullet.shot.promise();
+	},
+
+	shotFinished: function() {
+		$("#bullet").hide();
+		bullet.shot.resolve('red');
+	},
+}
+
+var redGuy = {
+	shootBlue: function() {
+		return bullet.shoot();
+	},
+}
+
+var blueGuy = {
+	die: function() {
+		$("#blueGuy").fadeOut(2000);
+	},
+	
+	shotFired: function(shot) {
+		shot.done(blueGuy.die);
+		if(shot.reject)
+			shot.reject();
+	}
+}
+
+function startCombat() {
+	var shot = redGuy.shootBlue();
+	blueGuy.shotFired(shot);
+	shot.always(function() { console.log('battle is complete'); });
+	shot.done(function(winner) { console.log('battle resolved. Winner: ' + winner); });
+	shot.fail(function() { console.log('battle rejected'); });
+}
+
+$(function() {
+	$("#redGuy").click(startCombat);
+	$("#button1").click(function() { bullet.shot.done(function(winner) { console.log("The winner was " + winner); }) });
+});
+	
+</script>
+	<div id="redGuy" style="height:100px; width:100px; background-color:red; position:absolute; top:200px; left:10px">&nbsp;</div>
+	<div id="blueGuy" style="height:100px; width:100px; background-color:blue; position:absolute; top:200px; left:600px">&nbsp;</div>
+	<div id="bullet" style="height:4px; width:20px; background-color:green; position:absolute; top:250px; left:110px; display:none">&nbsp;</div>
+	<input id="button1" type="button" value="Who Won?" style="position:absolute; top: 400px; left:100px;" />
+</body>
+</html>

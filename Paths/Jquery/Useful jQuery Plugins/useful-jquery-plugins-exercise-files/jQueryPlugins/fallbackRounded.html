@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Fallbacks Rounded</title>
+    
+    <style type="text/css">
+        img {border-radius:25px;}
+    </style>
+
+    <script type="text/javascript" src="/js/modernizr.custom.41745.js"></script>
+
+    <script type="text/javascript">
+        Modernizr.load({
+            test: Modernizr.borderradius,
+            nope: ['/js/jquery-1.10.2.min.js', '/js/jquery-migrate-1.2.1.min.js', '/js/jquery.imgr.min.js'],
+            complete: function () {
+                if (!Modernizr.borderradius) {
+                    $("#imgFlag").imgr({ size: "3px", color: "red", radius: "25px" });
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <img id="imgFlag" src="/images/flagBridge.jpg" />
+</body>
+</html>

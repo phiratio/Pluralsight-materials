@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html >
+<html>
+<head>
+    <title>Carousel Plugin</title>
+    
+    <style type="text/css">
+        #btnPrev {position:absolute; left:5px; top:50px;}
+        #btnNext {position:absolute; left:662px; top:50px;}
+        .carouselImages {margin-left:45px;}
+    </style>
+
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/jcarousellite_1.0.1.min.js"></script>
+    
+    <script >
+        $(function () {
+            $(".carouselImages").jCarouselLite({
+                btnNext: "#btnNext",
+                btnPrev: "#btnPrev",
+                circular: false,
+                visible: 3
+            });
+        });
+    </script>
+</head>
+<body>
+    <img id="btnPrev" src="/images/previous.png" />
+    <div class="carouselImages">
+        <ul>
+            <li><img src="/images/bridgeWalkSm.jpg"></li>
+            <li><img src="/images/FlagBridgeSm.jpg"></li>
+            <li><img src="/images/OperaHouseSm.jpg"></li>
+            <li><img src="/images/ZigZagSm.jpg"></li>
+        </ul>
+    </div>
+    <img id="btnNext" src="/images/next.png" />
+</body>
+</html>

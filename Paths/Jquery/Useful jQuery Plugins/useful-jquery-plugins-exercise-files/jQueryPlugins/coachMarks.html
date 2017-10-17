@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Coach Marks</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/joyride-2.1.css" />
+
+    <script src='/js/jquery-1.10.2.min.js'></script>
+    <script src='/js/jquery.joyride-2.1.js'></script>
+</head>
+<body>
+    <h2 id="step1">Sydney Harbor</h2>
+    <img src="/images/FlagBridge.JPG" width="800" height="600" />
+
+    <h2 id="step2">Sydney Harbor Opera House </h2>
+    <img src="/images/OperaHouse.JPG" width="800" height="600" />
+
+    <h2 id="step3">Climb the Bridge!</h2>
+	<img src="/images/bridgeWalk.JPG" width="800" height="600" />
+
+    <h2 id="step4">ZigZag Railway</h2>
+	<img src="/images/ZigZag.JPG" width="800" height="600" />
+
+    <ol id="chooseID" style="display: none">
+        <li data-id="step1"><p>Tour the Harbor</p></li>
+        <li data-id="step2"><p>Tour the Opera House</p></li>
+        <li data-id="step3"><p>Climb the Bridge</p></li>
+        <li data-id="step4" data-button="Close"><p>Take a Ride on the ZigZag Railway</p></li>
+    </ol>
+
+    <script>
+        $(function () {
+            $("#chooseID").joyride({
+                autoStart: true,
+            });
+        });        
+    </script>
+</body>
+</html>

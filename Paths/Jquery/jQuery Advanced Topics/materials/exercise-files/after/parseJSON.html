@@ -1,0 +1,21 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+
+	$(function() {
+		var json = '{"fname" : "john", "lname" : "smith", "age" : 35}';
+		var jsObject = $.parseJSON(json);
+		$("#output").append(jsObject.fname + "<br />" + jsObject.lname + "<br />" + jsObject.age);
+		
+	});
+		
+	</script>
+	
+	<h1>ParseJSON Demo</h1>
+	
+	<div id="output" />
+</body>
+</html>

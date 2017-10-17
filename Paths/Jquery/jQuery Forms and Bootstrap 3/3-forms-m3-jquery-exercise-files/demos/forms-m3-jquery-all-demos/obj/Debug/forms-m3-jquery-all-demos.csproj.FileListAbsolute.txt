@@ -1,0 +1,5 @@
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m3-jquery\demos\forms-m3-jquery-all-demos\bin\forms-m3-jquery-all-demos.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m3-jquery\demos\forms-m3-jquery-all-demos\bin\forms-m3-jquery-all-demos.pdb
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m3-jquery\demos\forms-m3-jquery-all-demos\obj\Debug\forms-m3-jquery-all-demos.csprojResolveAssemblyReference.cache
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m3-jquery\demos\forms-m3-jquery-all-demos\obj\Debug\forms-m3-jquery-all-demos.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m3-jquery\demos\forms-m3-jquery-all-demos\obj\Debug\forms-m3-jquery-all-demos.pdb

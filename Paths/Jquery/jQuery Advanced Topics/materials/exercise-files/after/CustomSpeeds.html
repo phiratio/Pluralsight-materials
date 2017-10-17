@@ -1,0 +1,33 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	$.fx.speeds.slower = 2000;
+	$.fx.speeds.ludicrous = 100;
+
+	$(function() {
+	
+		$("#fadingDiv").click(function() {
+			$(this).fadeOut($("input:radio[name=group1]:checked").val(), function() {
+				$(this).show();
+			});
+		});
+	});
+		
+	</script>
+	
+	<h1>Custom Speeds Demo</h1>
+	
+	<input type="radio" name="group1" checked value="slower" />Slower
+	<input type="radio" name="group1" checked value="slow" />Slow
+	<input type="radio" name="group1" checked value="" />Normal
+	<input type="radio" name="group1" checked value="fast" />Fast
+	<input type="radio" name="group1" checked value="ludicrous" />Ludicrous
+	
+	<div id="fadingDiv" style="background-color: green; width:400px; height:200px" />
+	
+</body>
+</html>

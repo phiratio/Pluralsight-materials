@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <h3>Items to Push</h3>
+                <ul id="items-to-push">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+            <div class="span4">
+                <h3>Stack</h3>
+                <ul id="stack"></ul>
+            </div>
+            <div class="span4">
+                <h3>Items Popped</h3>
+                <ul id="items-popped"></ul>
+            </div>
+        </div>
+
+        <button id="push" class="btn">Push</button>
+        <button id="pop" class="btn">Pop</button>
+    </div>
+    <script src="Scripts/jquery.min.js"></script>
+    <script>
+        $("#push").on("click", function () {
+            $("li:nth-child(1)").prependTo("#stack");
+        });
+
+        $("#pop").on("click", function () {
+            $("#stack li:nth-child(1)").appendTo("#items-popped");
+        });
+    </script>
+</body>
+</html>

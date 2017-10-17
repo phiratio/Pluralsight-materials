@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Popup</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/colorbox.css" />
+
+    <script src="/js/jquery-2.0.2.min.js"></script>
+    <script src="/js/jquery.colorbox-min.js"></script>
+
+    <script>
+         $(function () { 
+            $("#inlineFlag").colorbox({ inline: true, width: "745px", height: "590px", overlayClose: false });
+            $("#iframePluralsight").colorbox({ iframe: true, width: "90%", height: "90%", closeButton: false });
+
+            $("#events").colorbox({
+                onOpen: function () { alert("Colorbox onOpen"); },
+                onLoad: function () { alert("Colorbox onLoad"); },
+                onComplete: function () { alert("Colorbox onComplete"); },
+                onCleanup: function () { alert("Colorbox onCleanup"); },
+                onClosed: function () { alert("Colorbox onClosed"); }
+            });
+            
+            $("#childForm").colorbox({ closeButton: false, onClosed: function () { alert($.colorbox.popupResult) } });
+        });
+     </script>
+</head>
+<body>
+    <a id="inlineFlag" href="#flag">Inline HTML (modal)</a><p />
+    <a id="iframePluralsight" href="http://www.pluralsight.com">Outside Webpage (Iframe)</a><p />
+    <a id="events" href="/images/FlagBridge.jpg" title="Sydney Harbor Bridge">Example with events</a><p />
+    <a id="childForm" href="/popupChild.html">Child Form</a><p />
+
+    <div style="display:none">
+        <div id="flag">
+            <img src="/images/FlagBridge.JPG" />
+        </div>
+    </div>
+</body>
+</html>

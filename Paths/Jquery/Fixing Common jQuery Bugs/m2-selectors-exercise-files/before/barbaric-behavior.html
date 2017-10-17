@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="container">
+    	<ul id="contacts"></ul>
+    </div>
+    <button>Refresh</button>
+	<script src="Scripts/jquery-2.0.0.min.js"></script>
+	<script>
+		var contacts = [
+			{ name: "John Doe", birthday: "1/1/1970" },
+			{ name: "Jane Doe", birthday: "2/2/1975" },
+			{ name: "Baby Doe", birthday: "3/3/2010" }
+		];
+		$(document).ready(function () {
+		    var $container = $("#container"),
+                $contacts = $("#contacts");
+
+		    var addContacts = function (contacts) {
+		        var list = $contacts.remove();
+		        $.each(contacts, function (index, contact) {
+		            $("<li />", { html: contact.name }).data("birthday", contact.birthday).appendTo($contacts);
+		        });
+		        $container.append(list);
+		    }
+
+		    var initialize = function () {
+		        $("#container").on("click", "#contacts li", function () {
+		            alert("Birthday: " + $(this).data("birthday"));
+		        });
+
+		        $("button").on("click", function () {
+		            addContacts([{ name: "Yoda Doe", birthday: "4/4/2013" }]);
+		        });
+		    };
+
+		    initialize();
+		    addContacts(contacts);
+		});
+	</script>
+</body>
+</html>

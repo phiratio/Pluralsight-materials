@@ -1,0 +1,2 @@
+del uv.pdb vc100.pdb uv.ilk uv.obj
+cl uv.c -I"C:\\Program Files\\Microsoft Visual Studio 10.0\\VC\\include" /link /libpath:"C:\\Program Files\\Microsoft Visual Studio 10.0\\VC\\lib" /libpath:"C:\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\Lib"

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <style>.highlight { background-color: yellow; }</style>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <ul id="items" class="nav nav-list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+    <script src="Scripts/jquery-2.0.0.min.js"></script>
+    <script>
+        $(document).on("mouseenter", "#items li", function (e) {
+            var $this = $(this);
+            $this.addClass("highlight");
+            $this.nextAll().removeClass("highlight");
+        });
+    </script>
+</body>
+</html>

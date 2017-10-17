@@ -1,0 +1,5 @@
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m2-styling\demos\forms-m2-styling-all-demos\forms-m2-styling-all-demos\bin\forms-m2-styling-all-demos.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m2-styling\demos\forms-m2-styling-all-demos\forms-m2-styling-all-demos\bin\forms-m2-styling-all-demos.pdb
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m2-styling\demos\forms-m2-styling-all-demos\forms-m2-styling-all-demos\obj\Debug\forms-m2-styling-all-demos.csprojResolveAssemblyReference.cache
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m2-styling\demos\forms-m2-styling-all-demos\forms-m2-styling-all-demos\obj\Debug\forms-m2-styling-all-demos.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m2-styling\demos\forms-m2-styling-all-demos\forms-m2-styling-all-demos\obj\Debug\forms-m2-styling-all-demos.pdb

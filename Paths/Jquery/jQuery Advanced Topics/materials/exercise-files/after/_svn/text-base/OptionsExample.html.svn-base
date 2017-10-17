@@ -1,0 +1,26 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.js"></script>
+	<script type="text/javascript" src="emphasize-options.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+
+	
+	$(function() {
+		$('#div1').emphasize();
+		
+		$.fn.emphasize.defaults.backColor = 'red';
+		
+		$('#div2').emphasize();
+	});
+	</script>
+	
+	<h1>Options Example</h1>
+	
+	<div id="div1">This is some content that I can emphasize</div>
+	<div id="div2">I have overridden the default value before emphasizing this content</div>
+	
+	
+</body>
+</html>

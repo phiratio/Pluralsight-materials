@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Instagram</title>
+
+    <link rel="stylesheet" href="/css/jqinstagram.css" type="text/css" media="screen" />
+
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/jqinstapics.js"></script> 
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#instagram").jqinstapics({
+                "user_id": "--",
+                "access_token": "--",
+                "count": 5
+            });
+        });
+    </script>   
+</head>
+<body>
+    <ul id="instagram"></ul>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+	
+</head>
+<body>
+
+<script type="text/javascript" >
+
+	
+$(function() {
+
+	var div1 = $("#div1");
+	
+	div1.on('setData', function(e, key, value) { console.log("data set", key, value); });
+	div1.on('changeData', function(e, key, value) { console.log("data change", key, value); });
+	div1.on('getData', function(e, key, value) { console.log("data get", key, value); });
+	
+	div1.data("val1", 5);
+	var data = div1.data("val1");
+	
+	var div3 = $("#div3");
+	div3.on('getData', function(e, key, value) { return 25; });
+	
+	div3.data('val1', 4);
+	console.log(div3.data("val1"));
+	
+});
+	
+</script>
+	<div id="div1" ></div>
+	<div id="div2" ></div>
+	<div id="div3" ></div>
+	
+</body>
+</html>

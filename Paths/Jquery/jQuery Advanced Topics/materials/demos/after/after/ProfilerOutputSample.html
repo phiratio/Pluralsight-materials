@@ -1,0 +1,59 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+	<style>
+		.inside {
+			height:40px;
+			
+		}
+		div {
+			border: 1px solid black;
+			padding: 5px;
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+
+<script type="text/javascript" >
+
+	
+$(function() {
+	
+	
+	
+	$("div").hover(handleMouseMove);
+});
+
+function handleMouseMove() {
+	console.time('hover');
+	handleInner();
+	console.timeEnd('hover');
+}
+
+function handleInner() {
+	handleInnerMost();
+	console.log("inner");
+}
+
+function handleInnerMost() {
+	console.log('innerMost');
+	(function() {
+		console.log('innerMost Anonymous');
+	})();
+}
+	
+</script>
+
+	<div>
+		<div>
+			<div>
+				<div class="inside"></div>
+				<div class="inside"></div>
+			</div>
+		</div>
+	</div>
+		
+	
+</body>
+</html>

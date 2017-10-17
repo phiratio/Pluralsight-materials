@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Toolbar</title>
+
+    <link href="/css/jquery.toolbars.css" rel="stylesheet" />
+    <link href="/css/bootstrap.icons.css" rel="stylesheet" />
+
+    <script src="/js/jquery-2.0.2.min.js"></script>
+    <script src="/js/jquery.toolbar.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#myToolbar').toolbar({
+                content: '#user-toolbar-options', position: 'bottom', hideOnClick: true
+            });
+        });
+     </script>
+</head>
+<body>
+    <a href="#" id="myToolbar">Toolbar</a>
+    <div id="user-toolbar-options" style="display:none">
+	    <a href="#"><i class="icon-search"></i></a>
+	    <a href="#"><i class="icon-star"></i></a>
+	    <a href="#"><i class="icon-trash"></i></a>
+    </div>	
+</body>
+</html>

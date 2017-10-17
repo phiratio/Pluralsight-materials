@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+        Today's Temperature: <span id="temperature">?</span> Kelvin
+    </div>
+
+    <script src="Scripts/jquery.js"></script>
+
+    <script>
+        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Nashville,TN", function (data) {
+            var weather = data.main;
+            $("#temperature").html(weather.temp);
+        });
+    </script>
+</body>
+</html>

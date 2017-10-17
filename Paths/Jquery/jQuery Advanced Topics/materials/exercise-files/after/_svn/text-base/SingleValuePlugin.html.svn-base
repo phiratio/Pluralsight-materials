@@ -1,0 +1,35 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+
+	(function($){
+		$.fn.average = function() {
+			var sum = 0;
+			this.each(function() {
+				sum += parseFloat($(this).html());
+			});
+			return sum / $(this).length;
+		}
+	})(jQuery);
+	
+	$(function() {
+		console.log($('div').average());
+	});
+
+	</script>
+	
+	<h1>Returning Single Values</h1>
+	
+	<div>5</div>
+	<div>3</div>
+	<div>3</div>
+	<div>78</div>
+	<div>22</div>
+	<div>1</div>
+	<div>2</div>
+	
+</body>
+</html>

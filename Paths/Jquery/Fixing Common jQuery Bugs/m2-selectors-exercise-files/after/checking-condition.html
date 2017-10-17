@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+	<style>.content { display: inline-block; }</style>
+</head>
+<body>
+    <div id="toggleInput"><input type="checkbox" /> Toggle All</div>
+	<ul id="items">
+		<li><input type="checkbox" /> <div class="content">Testing 1</div></li>
+		<li><input type="checkbox" /> <div class="content">Testing 2</div></li>
+		<li><input type="checkbox" /> <div class="content">Testing 3</div></li>
+		<li><input type="checkbox" /> <div class="content">Testing 4</div></li>
+		<li><input type="checkbox" /> <div class="content">Testing 5</div></li>
+	</ul>
+    <script src="Scripts/jquery-2.0.0.min.js"></script>
+    <script>
+    	$(document).on("click", "#toggleInput input", function (e) {
+    		$("#items").find("input").prop("checked", $(this).prop("checked"));
+        });
+    </script>
+</body>
+</html>

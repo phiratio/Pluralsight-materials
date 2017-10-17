@@ -1,0 +1,74 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.js"></script>
+	<style>div {margin: 3; padding: 5; width: 200px }</style>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	/* using closures */
+	(function($){
+		var currentLevel = 0;
+		$.fn.increaseEmphasis = function() {
+			currentLevel++;
+			if(currentLevel === 1)
+				return this.css('background-color', 'yellow');
+			else if(currentLevel === 2)
+				return this.css('background-color', 'orange');
+			else 
+				return this.css('background-color', 'red');
+		}
+	})(jQuery);
+	
+	/* using data */
+	(function($){
+		$.fn.increaseEmphasisData = function() {
+			if(!this.data('level'))
+				this.data('level', '0');
+			var currentLevel = parseInt(this.data('level')) + 1;
+			this.data('level', currentLevel);
+			if(currentLevel === 1)
+				return this.css('background-color', 'yellow');
+			else if(currentLevel === 2)
+				return this.css('background-color', 'orange');
+			else 
+				return this.css('background-color', 'red');
+		}
+	})(jQuery);
+	
+		
+	$(function() {
+		$("#button1").click(function() {
+			$('#div1').increaseEmphasis();
+		});
+		$("#button2").click(function() {
+			$('#div2').increaseEmphasis();
+		});
+		$("#button3").click(function() {
+			$('#div3').increaseEmphasisData();
+		});
+		$("#button4").click(function() {
+			$('#div4').increaseEmphasisData();
+		});
+	});
+		
+	</script>
+	
+	<h1>Maintaining State</h1>
+	
+	<h2>These are tracked using a closure</h2>
+	<div id="div1">Some content for me to emphasize</div>
+	<input type="button" id="button1" value="Increase Emphasis" />
+	
+	<div id="div2">Some other content for me to emphasize</div>
+	<input type="button" id="button2" value="Increase Emphasis" />
+	
+	<h2>These are tracked using $.data</h2>
+	<div id="div3">Some content for me to emphasize</div>
+	<input type="button" id="button3" value="Increase Emphasis" />
+	
+	<div id="div4">Some other content for me to emphasize</div>
+	<input type="button" id="button4" value="Increase Emphasis" />
+	
+</body>
+</html>

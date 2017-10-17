@@ -1,0 +1,38 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.js"></script>
+	<script type="text/javascript" src="log.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	var $sub;
+	(function($){
+		$sub = $.sub();
+		$sub.fn.old_attr = $sub.fn.attr;
+		$sub.fn.attr = function(name, value) {
+			var args = [jQuery.myProps[name] || name, value];
+			return $sub.fn.old_attr.apply(this, args);
+		};
+		$.myProps = {};
+		$.myProps.mcp = "myCustomProperty";
+		$.myProps.pwrln = "propertyWithReallyLongName";
+	
+	})(jQuery);
+	
+		
+	$(function() {
+		$.log($("div").attr("mcp"));
+		$.log($sub("div").attr("mcp"));
+		
+		
+	});
+		
+	</script>
+	
+	<h1>Overriding Built-In Functions With Sub Demo</h1>
+	
+	<div myCustomProperty="3" propertyWithReallyLongName="hello" />
+	
+</body>
+</html>

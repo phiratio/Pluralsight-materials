@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>News Ticker</title>
+
+    <link rel="stylesheet" href="/css/ticker-style.css" type="text/css" media="screen" />
+
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/js/jquery.ticker.js"></script> 
+    
+    <script type="text/javascript">
+        $(function () {
+            $('#js-news').ticker();
+        });
+    </script>  
+</head>
+<body>
+    <ul id="js-news" class="js-hidden">
+        <li class="news-item">Isn't this a great course?</li>
+        <li class="news-item">Aren't you learning a lot?</li>
+        <li class="news-item">These plugins are so helpful</li>
+        <li class="news-item">I want to see more</li>
+    </ul>
+</body>
+</html>

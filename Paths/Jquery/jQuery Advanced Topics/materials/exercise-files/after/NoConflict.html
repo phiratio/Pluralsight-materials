@@ -1,0 +1,32 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		// this script will throw an error
+		$.noConflict(); //or $ = null;
+		
+		$.fn.myPlugin = function() {
+			return this;
+		};
+		
+	</script>
+	
+	<script type="text/javascript">
+		// this script will work
+		$.noConflict();
+		
+		(function($){
+			$.fn.myPlugin = function() {
+				console.log('it worked');
+				return this;
+			};
+		})(jQuery);
+		
+		jQuery('div').myPlugin();
+		
+	</script>
+	
+</body>
+</html>

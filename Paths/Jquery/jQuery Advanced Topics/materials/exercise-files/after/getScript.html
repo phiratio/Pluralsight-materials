@@ -1,0 +1,28 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+
+	$(function() {
+		$("input").click(function() {
+			$.getScript("script.js", function(data, textStatus) {
+				console.log(textStatus);
+			
+			});
+		});
+		
+		$("#clickme").ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
+			console.log(thrownError);
+		});
+		
+	});
+		
+	</script>
+	
+	<h1>GetScript Demo</h1>
+	<input id="clickme" type="button" value="click me" />
+	
+</body>
+</html>

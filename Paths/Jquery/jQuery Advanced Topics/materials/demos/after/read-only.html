@@ -1,0 +1,25 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+	
+</head>
+<body>
+
+<script type="text/javascript" >
+
+	
+$(function() {
+	
+	console.log($("#div1").get(0));
+	console.log($("#div1").data("value"));
+	$("#div1").data("value", 4);
+	console.log($("#div1").get(0));
+	
+});
+	
+</script>
+
+	<div id="div1" data-value="3"  ></div>
+
+</body>
+</html>

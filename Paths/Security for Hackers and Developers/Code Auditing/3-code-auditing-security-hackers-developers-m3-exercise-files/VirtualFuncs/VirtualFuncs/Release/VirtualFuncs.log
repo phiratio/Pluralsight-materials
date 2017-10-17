@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+  VirtualFuncs.cpp
+  Generating code
+  Finished generating code
+  0 of 16 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    7 functions had inline decision re-evaluated but remain unchanged
+  VirtualFuncs.vcxproj -> C:\Users\AppSec\Desktop\AppSec\SrcAudit\labs\Lab3 - warm up with C++\VirtualFuncs\Release\VirtualFuncs.exe

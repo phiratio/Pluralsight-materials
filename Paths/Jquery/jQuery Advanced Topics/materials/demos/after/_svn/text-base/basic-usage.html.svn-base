@@ -1,0 +1,30 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+	
+</head>
+<body>
+
+<script type="text/javascript" >
+
+	
+$(function() {
+	
+	$("#div1").data("three", 3);
+	$("#div1").data("four", "four");
+	
+	console.log($("#div1").data("three"));
+	console.log($("#div1").data("four"));
+	
+	$("#div1").data("Four", "a different four");
+	console.log($("#div1").data("four"));
+	console.log($("#div1").data("Four"));
+	
+	
+});
+	
+</script>
+	<div id="div1"  />
+	
+</body>
+</html>

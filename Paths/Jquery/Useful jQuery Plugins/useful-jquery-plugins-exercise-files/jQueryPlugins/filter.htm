@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Plugin</title>
+    
+    <style type="text/css">
+        #portfolio-list li {list-style:none;}
+    </style>
+
+    <script src="/js/jquery-1.10.2.min.js"></script>
+	<script src="/js/filterable.pack.js"></script>
+
+</head>
+<body>
+    Filter by:<br />
+    <ul id="portfolio-filter">
+		<li><a href="#all">All</a></li>
+		<li><a href="#flags" rel="flags">Flags</a></li>
+        <li><a href="#bridge" rel="bridge">Bridge</a></li>
+        <li><a href="#operaHouse" rel="operaHouse">Opera House</a></li>
+        <li><a href="#train" rel="train">Train</a></li>
+	</ul>
+		
+	<ul id="portfolio-list">
+        <li class="bridge"><img src="/images/bridgeWalkSm.jpg"></li>
+        <li style="display: block;" class="bridge flags"><img src="/images/FlagBridgeSm.jpg" alt=""></li>
+        <li class="operaHouse"><img src="/images/OperaHouseSm.jpg"></li>
+        <li class="train"><img src="/images/ZigZagSm.jpg"></li>
+    </ul>
+</body>
+</html>

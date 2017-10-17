@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Roundabout</title>
+
+    <style>
+			ul {
+				margin: 1em auto;
+				width: 38em;
+				height: 20em;
+   				list-style: none;
+			}
+			li {
+                cursor: default;
+				text-align: center;
+				height: 20em;
+				width: 30em;				
+				background-color: lightgray;				
+ 			}
+    </style>
+ 
+
+    <script src="/js/jquery-2.0.2.min.js"></script>
+    <script src="/js/jquery.roundabout.min.js"></script>
+    
+    <script type="text/javascript">
+         $(function () {
+             $('ul').roundabout({ minOpacity: .1, minScale: .1 });
+         });
+     </script>
+</head>
+<body>
+    <ul>
+        <li>
+            <h2>Sydney Bridge Climb</h2>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet gravida ante. 
+            Phasellus congue ligula non enim gravida, vel interdum elit auctor. Nullam eu euismod 
+            dolor, et consectetur nunc. Vivamus tincidunt vitae ipsum nec tempus.<p></p> Cras vitae nibh 
+            ac augue pellentesque malesuada. Maecenas ultricies vitae dui quis tincidunt. Curabitur 
+            ut sagittis lorem. Nam eros sapien, aliquet pharetra iaculis quis, ullamcorper ut mi.<p></p> 
+            Sed urna ligula, tristique ut accumsan in, condimentum quis quam. Nam pharetra erat at lacus 
+            sagittis sagittis.  <p></p>
+            <a href="http://bridgeclimb.com">Bridge Climb</a>  <p></p>
+        </li>
+        <li>
+            <h2>Zig Zag Railway</h2>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet gravida ante. 
+            Phasellus congue ligula non enim gravida, vel interdum elit auctor. Nullam eu euismod 
+            dolor, et consectetur nunc. Vivamus tincidunt vitae ipsum nec tempus.<p></p> Cras vitae nibh 
+            ac augue pellentesque malesuada. Maecenas ultricies vitae dui quis tincidunt. Curabitur 
+            ut sagittis lorem. Nam eros sapien, aliquet pharetra iaculis quis, ullamcorper ut mi.<p></p> 
+            Sed urna ligula, tristique ut accumsan in, condimentum quis quam. Nam pharetra erat at lacus 
+            sagittis sagittis.  
+            <p></p>  <a href="http://www.zigzagrailway.com.au/">Railway</a>
+        </li>
+		<li>
+            <h2>Sydney Opera House</h2>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet gravida ante. 
+            Phasellus congue ligula non enim gravida, vel interdum elit auctor. Nullam eu euismod 
+            dolor, et consectetur nunc. Vivamus tincidunt vitae ipsum nec tempus.<p></p> Cras vitae nibh 
+            ac augue pellentesque malesuada. Maecenas ultricies vitae dui quis tincidunt. Curabitur 
+            ut sagittis lorem. Nam eros sapien, aliquet pharetra iaculis quis, ullamcorper ut mi.<p></p> 
+            Sed urna ligula, tristique ut accumsan in, condimentum quis quam. Nam pharetra erat at lacus 
+            sagittis sagittis.  
+            <p></p>  <a href="http://www.sydneyoperahouse.com/homepage.aspx">Opera House</a>
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <a href="http://pluralsight.com">Hello</a>
+    <a href="http://elijahmanor.com">World</a>
+    <div class="heart">Heart</div>
+    <script src="Scripts/jquery.min.js"></script>
+    <script>
+        (function ($) {
+            $.fn.valentines = function (options) {
+                var opts = $.extend({}, $.fn.valentines.defaults, options);
+
+                return this.queue(function (next) {
+                    $(this).css("color", opts.color);
+                    next();
+                });
+            };
+
+            $.fn.valentines.defaults = { color: "red" };
+        }(jQuery));
+
+        $("a").valentines({ color: "#B00000" });
+        $(".heart").valentines();
+    </script>
+</body>
+</html>

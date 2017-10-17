@@ -1,37 +1,11 @@
-﻿*  
+﻿div
 {
-    padding:0px;
-    margin: 0px;
+   font-size: 8px;
 }
 
-body
+p
 {
-    background-color:#cccccc;
-}
-
-.menu
-{
-    list-style: none;
-    text-align:center;
-}
-
-.menu li:hover
-{
-    background-color: #cc9999;
-}
-
-.menu li
-{
-    display:inline-block;
-    width: 150px;    
-    text-align:center;
-    padding: 3px 0 0 10px;
-    border-bottom: 3px solid #000000;           
-    background-color: #cccc99;
-}
-
-.menu li a
-{
-    text-decoration:none;
-    color: #000000;
+   font-size: 22px;
+   border-style:solid;
+   border-width :5px; 
 }

@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>.highlight { background-color: yellow; }</style>
+</head>
+<body>
+    <ul id="items">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+    <script src="Scripts/jquery-2.0.0.min.js"></script>
+    <script>
+        $(document).on("mouseenter mouseleave", "#items li", function (e) {
+            $(this).toggleClass("highlight", e.type === "mouseenter");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+
+	$(function() {
+		$.fn.everyThird = function() {
+			var arr = [];
+			$.each(this, function(idx, item) {
+				if(idx%3 == 0)
+					arr.push(item);
+			});
+			return  this.pushStack(arr, "everyThird", "");
+		};
+		
+		$("#clickme").click(function() {
+			var thirds = $("div").everyThird().css("color", "Red").end().css("font-weight", "bold");
+			console.log(thirds);
+		});
+	});
+		
+	</script>
+	
+	<h1>PushStack Demo</h1>
+	
+	<input id="clickme" type="button" value="click me" />
+	
+	<div id="out1">1</div>
+	<div id="out2">2</div>
+	<div id="out3">3</div>
+	<div id="out4">4</div>
+	<div id="out5">5</div>
+	<div id="out6">6</div>
+	<div id="out7">7</div>
+</body>
+</html>

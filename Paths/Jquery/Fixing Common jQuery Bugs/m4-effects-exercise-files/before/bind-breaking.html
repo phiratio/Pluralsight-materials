@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <a href="http://pluralsight.com">Hello</a>
+    <a href="http://elijahmanor.com">World</a>
+
+    <script src="Scripts/jquery.min.js"></script>
+    <script>
+        (function ($) {
+            $.fn.valentines = function () {
+                this.queue(function (next) {
+                    $(this).css("color", "red");
+                   next();
+                });
+            };
+        }(jQuery));
+
+        $("a").fadeOut("slow").valentines().fadeIn("slow");
+    </script>
+</body>
+</html>

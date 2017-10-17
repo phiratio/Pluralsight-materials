@@ -1,0 +1,45 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.js"></script>
+	<style>
+		div { width:200px; padding: 5; margin: 3 }
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	(function($) {
+		$.expr[':'].myEven = function(elem, idx, meta, items) {
+			return idx % 2 == 0;
+		}
+		$.expr[':'].every = function(elem, idx, meta, items) {
+			return (idx + 1) % parseFloat(meta[3]) == 0;
+		}
+		$.expr[':'].afterBob = function(elem, idx, meta, items) {
+			return idx == 0 ? false : items[idx - 1].innerHTML == "Bob";
+		}
+	})(jQuery);
+
+	$(function() {
+		$("div:afterBob").css('background-color', 'yellow');
+		
+
+	});
+		
+	</script>
+	
+	<h1>Custom Selector Demo</h1>
+	
+	<div>Div 1</div>
+	<div>Bob</div>
+	<div>Div 3</div>
+	<div>Div 4</div>
+	<div>Div 5</div>
+	<div>Div 6</div>
+	<div>Bob</div>
+	<div>Bob</div>
+	<div>Div 9</div>
+	<div>Div 10</div>
+	
+</body>
+</html>

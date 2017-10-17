@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        .freshman { color: red; }
+        .sophomore  { color: orange; }
+        .junior { color: green; }
+        .senior { color: blue; }
+    </style>
+</head>
+<body>
+    <div id="student"></div>
+    <script src="Scripts/jquery.min.js"></script>
+    <script>
+        (function () { 
+            "use strict"; 
+
+            var johnSmith = {
+                name: "John Smith",
+                cssClass: "freshman", 
+                gpa: 3.5
+            };
+            $("#student").html(johnSmith.name + " " + johnSmith.gpa).addClass(johnSmith.cssClass);
+        }());
+    </script>
+</body>
+</html>

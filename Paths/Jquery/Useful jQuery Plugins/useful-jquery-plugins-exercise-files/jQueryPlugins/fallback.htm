@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Fallbacks</title>
+
+    <style type="text/css">
+        img {opacity:0.4;}
+    </style>
+
+    <script type="text/javascript" src="/js/modernizr.custom.38564.js"></script>
+
+    <script type="text/javascript">
+        Modernizr.load({
+            test: Modernizr.opacity,
+            nope: ['/js/jquery-1.10.2.min.js'],
+            complete: function () {
+                if (!Modernizr.opacity) {
+                    $("img").css("opacity", "0.4");
+                }
+            }
+        });
+        
+        //if (!Modernizr.opacity) {
+        //     document.write('<script>$(document).ready(function () {$("img").css("opacity", "0.4")});<\/script>');
+    </script>
+</head>
+<body>
+    <img id="imgFlag" src="/images/flagBridge.jpg" />
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+	var loaded = false;
+	$.holdReady(true);
+	
+	$.getScript("holdready-plugin.js");
+	
+	function printPluginReady() {
+		if(loaded)
+			$("#output").append("<br />Plugin loaded");
+		else
+			$("#output").append("<br />Plugin not loaded");
+	}
+	
+	jQuery(function() {
+			$("#output").append("jQuery ready event firing");
+			printPluginReady();
+			$("#output").click(printPluginReady);
+		
+	});
+	
+	</script>
+	
+	<h1>HoldReady Demo</h1>
+	
+	<h3>Message appears below</h3>
+	<div id="output" style="background-color:yellow" />
+</body>
+</html>

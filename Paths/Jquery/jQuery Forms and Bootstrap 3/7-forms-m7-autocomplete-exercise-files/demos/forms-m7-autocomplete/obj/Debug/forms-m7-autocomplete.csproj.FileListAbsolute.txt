@@ -1,0 +1,5 @@
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m7-autocomplete\demos\forms-m7-autocomplete\bin\forms-m7-autocomplete.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m7-autocomplete\demos\forms-m7-autocomplete\bin\forms-m7-autocomplete.pdb
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m7-autocomplete\demos\forms-m7-autocomplete\obj\Debug\forms-m7-autocomplete.csprojResolveAssemblyReference.cache
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m7-autocomplete\demos\forms-m7-autocomplete\obj\Debug\forms-m7-autocomplete.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m7-autocomplete\demos\forms-m7-autocomplete\obj\Debug\forms-m7-autocomplete.pdb

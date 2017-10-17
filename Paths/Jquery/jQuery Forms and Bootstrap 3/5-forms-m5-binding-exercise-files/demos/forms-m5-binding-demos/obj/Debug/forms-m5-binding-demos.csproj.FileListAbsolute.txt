@@ -1,0 +1,5 @@
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m5-binding\demos\forms-m5-binding-demos\bin\forms-m5-binding-demos.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m5-binding\demos\forms-m5-binding-demos\bin\forms-m5-binding-demos.pdb
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m5-binding\demos\forms-m5-binding-demos\obj\Debug\forms-m5-binding-demos.csprojResolveAssemblyReference.cache
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m5-binding\demos\forms-m5-binding-demos\obj\Debug\forms-m5-binding-demos.dll
+C:\Users\Mark Zamoyta\dev\Pluralsight\forms\forms-m5-binding\demos\forms-m5-binding-demos\obj\Debug\forms-m5-binding-demos.pdb

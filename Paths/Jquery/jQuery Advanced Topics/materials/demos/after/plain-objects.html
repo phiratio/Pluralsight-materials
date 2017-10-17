@@ -1,0 +1,25 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+	
+</head>
+<body>
+
+<script type="text/javascript" >
+
+	
+$(function() {
+
+	var myobj = {val1: 3, val2: "hi", sayHi: function() { console.log("hi there"); } }
+	
+	console.log(myobj);
+	$(myobj).data("val1", 3);
+	console.log(myobj);
+	
+});
+	
+</script>
+	
+	
+</body>
+</html>

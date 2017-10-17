@@ -1,0 +1,46 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		(function($){
+			$.fn.myPlugin = function() {
+			
+				// the wrapped set is Array-Like, but not an array
+				console.log(this);
+				console.log($.makeArray(this));
+
+				return this;
+			};
+		})(jQuery);
+		
+		(function($){
+			$.fn.myPlugin2 = function() {
+				// this changes the stack while maintaining chainability and preserving the prevous stack
+				var newArray = [this[0]];
+				return this.pushStack(newArray);
+			};
+		})(jQuery);
+		
+		$(function() {
+			$('div').myPlugin();
+			
+			// we can access the nodes with an indexer, and elements of the array are just DOM nodes
+			console.log($('div')[0]);
+			console.log(document.getElementById('div1'));
+			
+			// pushStack can change the array of elements
+			console.log($('div'));
+			console.log($('div').myPlugin2());
+
+		});
+		
+	</script>
+	
+	<div id="div1">A Div</div>
+	<div id="div2">Another Div</div>
+	
+</body>
+</html>

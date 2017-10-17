@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Flickr2</title>
+
+    <link rel="stylesheet" href="/css/jquery.zflickrfeed.css" type="text/css" media="screen" />
+
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/jquery.zflickrfeed.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            //Tags - 'ocean,mountain'
+            //User - 110988023@N02
+            $('div').flickrfeed('', 'ocean,mountain', {
+                limit: 10,
+                imagesize: 'small'
+            });
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

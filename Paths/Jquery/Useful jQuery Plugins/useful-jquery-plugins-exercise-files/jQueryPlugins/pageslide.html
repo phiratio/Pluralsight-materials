@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>PageSlide</title>
+    
+    <link rel="stylesheet" type="text/css" href="/css/jquery.pageslide.css" />
+    
+    <script src="/js/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <a href="/pageslideSide.html" id="pageslideSideExt">External</a><p></p>
+
+    <a href="#internal" id="pageslideSideInternal">Internal</a>
+    <div id="internal" style="display:none">
+        <img src="/images/OperaHouseSm.jpg">
+        <p><a href="javascript:$.pageslide.close()">Close</a></p>
+    </div> 
+
+    <!-- Must be located here or doesn't work -->
+    <script src="/js/jquery.pageslide.min.js"></script>
+
+     <script >
+         $(function () {
+             $("#pageslideSideExt").pageslide({ direction: "left" });
+
+             $("#pageslideSideInternal").pageslide({ direction: "left", modal: true });
+         });
+    </script>
+</body>
+</html>

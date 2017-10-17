@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Lazy Load Images</title>
+
+    <script src="/js/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <img src="/images/FlagBridge.JPG" width="676" height="507" /><p />
+	<img src="/images/OperaHouse.JPG" width="676" height="507" /><p />
+	<img class="lazyLoadImage" src="/images/clear.gif" data-original="/images/bridgeWalk.JPG" width="676" height="507" /><p />
+	<img class="lazyLoadImage" src="/images/clear.gif" data-original="/images/Zig_Zag_Railway.JPG" width="676" height="507" /><p />
+
+    <script src="/js/jquery.lazyload.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("img.lazyLoadImage").lazyload();
+        });
+    </script>
+
+</body>
+</html>

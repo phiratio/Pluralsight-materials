@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/redmond/jquery-ui.css"  rel="stylesheet" />
+    <link href="Styles/menu.css" rel="stylesheet" />
+</head>
+<body>
+    <ul id="menu">
+        <li><a href="#">Browsers</a>
+            <ul>
+                <li><a href="#">Firefox</a></li>
+                <li><a href="#">Google Chrome</a></li>
+                <li><a href="#">Internet Explorer</a></li>
+                <li><a href="#">Opera</a></li>
+                <li><a href="#">Safari</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Editors</a>
+            <ul>
+                <li><a href="#">Sublime Text 2</a></li>
+                <li><a href="#">TextMate</a></li>
+                <li><a href="#">Visual Studio</a></li>
+                <li><a href="#">WebStorm</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Languages</a>
+            <ul>
+                <li><a href="#">C#</a></li>
+                <li><a href="#">CoffeeScript</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <li><a href="#">Ruby</a></li>
+                <li><a href="#">Visual Basic</a></li>
+            </ul>
+        </li>
+    </ul>
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
+    <script src="Scripts/jquery.hoverIntent.minified.js"></script>
+    <script>
+    $("#menu li").hover(
+        function () {
+            $(this).find("ul")
+                .slideDown();
+        },
+        function () {
+            $(this).find("ul")
+                .slideUp();
+        });
+    </script>
+</body>
+</html>

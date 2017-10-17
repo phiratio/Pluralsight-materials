@@ -1,0 +1,50 @@
+﻿/* http://www.kriesi.at/archives/create-a-multilevel-dropdown-menu-with-css-and-improve-it-via-jquery */
+  
+#menu, #menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    list-style-position: outside;
+    position: relative;
+    line-height: 1.5em;
+} 
+
+#menu a:link, #menu a:active, #menu a:visited {
+    display: block;
+    padding: 0px 5px;
+    border: 1px solid #333;
+    color: #fff;
+    text-decoration: none;
+    background-color: #333;
+}
+
+#menu a:hover {
+    background-color: #fff;
+    color: #333;
+}  
+  
+#menu li {
+    float: left;
+    position: relative;
+}
+  
+#menu ul {
+    position: absolute;
+    width: 12em;
+    top: 1.5em;
+    display: none;
+}
+  
+#menu li ul a {
+    width: 12em;
+    float: left;
+}
+  
+#menu ul ul{
+    top: auto;
+}
+
+#menu li ul ul {
+    left: 12em;
+    margin: 0px 0 0 10px;
+}

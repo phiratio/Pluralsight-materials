@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <ul id="numberList">
+        <li data-value="1">One</li>
+        <li data-value="2">Two</li>
+        <li data-value="3">Three</li>
+        <li data-value="4">Four</li>
+        <li data-value="5">Five</li>
+        <li data-value="6">Six</li>
+        <li data-value="7">Seven</li>
+        <li data-value="8">Eight</li>
+        <li data-value="9">Nine</li>
+        <li data-value="10">Ten</li>
+    </ul>
+    <script src="Scripts/jquery.min.js"></script>
+    <script>
+        function listHasNumber($list, numberToFind) {
+            $list.find("li").each(function () {
+                if ($(this).data("value") === numberToFind) {
+                    return true;
+                }
+            });
+
+            return false;
+        }
+
+        var $numberList = $("#numberList");
+
+        console.log(listHasNumber($numberList, 0));  // false
+        console.log(listHasNumber($numberList, 1));  // false
+        console.log(listHasNumber($numberList, 5));  // false
+        console.log(listHasNumber($numberList, 10)); // false
+        console.log(listHasNumber($numberList, 15)); // false
+    </script>
+</body>
+</html>

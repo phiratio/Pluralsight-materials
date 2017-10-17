@@ -1,0 +1,27 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+	
+</head>
+<body>
+
+<script type="text/javascript" >
+
+	
+$(function() {
+
+	var value1 = $("#div1").data("value1");
+	var value2 = $("#div1").data("valueTwo");
+	var value3 = $("#div1").data("valueThree");
+	console.log(value1);
+	console.log(value2);
+	console.log(value3);
+
+});
+	
+</script>
+
+	<div id="div1" data-value1="1" data-value-two="2" data-valueThree="3" ></div>
+	
+</body>
+</html>

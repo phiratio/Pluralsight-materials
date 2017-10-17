@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script src="Scripts/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("header")
+                .html("<h1>Hello</h1>")
+                .on("click", function () { alert($(this).text()); })
+                .append("<h2>World</h2>");
+        });
+    </script>
+    <header>Placeholder</header>
+</body>
+</html>

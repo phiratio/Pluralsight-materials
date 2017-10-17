@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <ul id="menu">
+        <li><a href="#">Browsers</a>
+            <ul>
+                <li><a href="#">Firefox</a></li>
+                <li><a href="#">Google Chrome</a></li>
+                <li><a href="#">Internet Explorer</a></li>
+                <li><a href="#">Opera</a></li>
+                <li><a href="#">Safari</a></li>
+            </ul>
+        </li>
+        <!-- ... -->
+    </ul>
+    <script src="Scripts/jquery.min.js"></script>
+    <script>
+        $("#menu li").hover(function (e) {
+            $(this).find("ul")
+                .stop(true, true)
+                .slideToggle(400, "easeOutBounce");
+        });
+    </script>
+
+</body>
+</html>

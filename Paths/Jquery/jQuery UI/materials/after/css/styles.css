@@ -1,0 +1,16 @@
+﻿body 
+{
+    background-color:#cccc99;
+    font-family: Arial, Sans-Serif;
+}
+
+.ui-progressbar
+{
+    height:14px;
+    width: 300px;
+}
+
+.ui-progressbar-value
+{
+    
+}

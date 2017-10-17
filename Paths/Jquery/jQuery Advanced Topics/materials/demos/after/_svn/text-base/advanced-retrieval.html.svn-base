@@ -1,0 +1,30 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+	
+</head>
+<body>
+
+<script type="text/javascript" >
+
+	
+$(function() {
+
+	var div1 = $("#div1");
+
+	div1.data("val1", 35);
+	div1.data("val2", "a string");
+	div1.data("val3", 3.14);
+	
+	var val1 = $.data(div1.get(0), "val1");
+	
+	var data = div1.data();
+	console.log(data);
+	
+});
+	
+</script>
+	<div id="div1"  />
+	
+</body>
+</html>

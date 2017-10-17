@@ -1,0 +1,70 @@
+        -:    0:Source:uv.c
+        -:    0:Graph:uv.gcno
+        -:    0:Data:uv.gcda
+        -:    0:Runs:2
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:
+        -:    5:#define MAX_USER 1024
+        -:    6:#define MAX_PASS MAX_USER
+        -:    7:
+        -:    8:#define ERR_CRITIC 0x01
+        -:    9:#define ERR_AUTH   0x02
+        -:   10:
+        -:   11:#define DEBUG
+        -:   12:
+        -:   13:int do_auth(void)
+        -:   14:{
+        -:   15:	char username[MAX_USER], password[MAX_PASS];
+        -:   16:
+        2:   17:	fprintf(stdout, "Please enter your username: ");
+        2:   18:	fgets(username, MAX_USER, stdin);
+        -:   19:
+        2:   20:	fflush(stdin);
+        -:   21:
+        2:   22:	fprintf(stdout, "Please enter your password: ");
+        2:   23:	fgets(password, MAX_PASS, stdin);
+        -:   24:
+        -:   25:#ifdef DEBUG
+        2:   26:	fprintf(stderr, "Username is at: 0x%08x (%d)\n", &username, strlen(username));
+        2:   27:	fprintf(stderr, "Password is at: 0x%08x (%d)\n", &password, strlen(password));
+        -:   28:
+        -:   29:#endif
+        3:   30:	if(!strcmp(username, "user\n") && !strcmp(password, "washere\n"))
+        -:   31:	{
+        1:   32:		return 0;
+        -:   33:	}
+        -:   34:	
+        1:   35:	return -1;
+        2:   36:}
+        -:   37:
+        -:   38:int log_error(int farray, char *msg)
+        -:   39:{
+        -:   40:	char *err, *mesg;
+        -:   41:	char buffer[24];
+        -:   42:
+        -:   43:#ifdef DEBUG
+    #####:   44:	fprintf(stderr, "Mesg is at: 0x%08x\n", &mesg);
+    #####:   45:	fprintf(stderr, "Mesg is pointing at: 0x%08x\n", mesg);
+        -:   46:#endif
+    #####:   47:	memset(buffer, 0x00, sizeof(buffer));
+    #####:   48:	sprintf(buffer, "Error: %s", mesg);
+        -:   49:
+    #####:   50:	fprintf(stdout, "%s\n", buffer);
+    #####:   51:	return 0;
+        -:   52:}
+        -:   53:
+        -:   54:int main(void)                   
+        -:   55:{
+        2:   56:	switch(do_auth())
+        -:   57:	{
+        -:   58:		case -1:
+        1:   59:			log_error(ERR_CRITIC | ERR_AUTH, "Unable to login");
+        1:   60:			break;
+        -:   61:		default:
+        1:   62:			break;
+        -:   63:	}
+        2:   64:	return 0;
+        -:   65:}

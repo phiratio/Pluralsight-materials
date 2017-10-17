@@ -1,0 +1,22 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.0.js"></script>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		// a minifier will minify the document & window variables inside the plugin
+		(function($, document, window){
+			$.fn.myPlugin = function() {
+				console.log(window);
+				console.log(document);
+				return this;
+			};
+		})(jQuery, document, window);
+		
+		jQuery('div').myPlugin();
+		
+	</script>
+	
+</body>
+</html>

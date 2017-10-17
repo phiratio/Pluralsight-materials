@@ -1,0 +1,38 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+
+</head>
+<body>
+
+<script type="text/javascript" >
+
+	
+$(function() {
+	
+	console.time("jQuery property");
+	var myDiv = $("div");
+	for(var i=0; i<10000; i++) {
+		var s = myDiv.attr("id");
+	}
+	console.timeEnd("jQuery property");
+	
+	/* add this after */
+	console.time("DOM property");
+	var myDiv = $("div");
+	for(var i=0; i<10000; i++) {
+		var s = myDiv[0].id;
+	}
+	console.timeEnd("DOM property");
+	
+});
+
+	
+</script>
+
+	<div id="myDiv" >
+		<span>some content</span>
+	</div>
+	
+</body>
+</html>

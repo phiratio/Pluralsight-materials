@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Cycle Plugin</title>
+
+    <script src="/js/jquery-2.0.2.min.js"></script>
+    <script src="/js/jquery-migrate-1.2.1.js"></script>
+    <!--<script src="/js/jquery-migrate-1.2.1.min.js"></script>-->
+    <script src="/js/jquery.cycle2.min.js"></script>
+    
+    <style type="text/css"> 
+        .slideshow { height: 800px; width: 600px; }
+        .slideshow img { padding: 0px; border: 0px}
+    </style>
+    
+    <script type="text/javascript">
+        $(function() {
+            $('.slideshow').cycle({ fx: 'fade' });
+
+            alert(jQuery.migrateWarnings);
+        });
+    </script>
+</head>
+<body>
+    <div class="slideshow">
+		<img src="/images/FlagBridge.JPG" width="800" height="600" />
+		<img src="/images/OperaHouse.JPG" width="800" height="600" />
+		<img src="/images/bridgeWalk.JPG" width="800" height="600" />
+		<img src="/images/ZigZag.JPG" width="800" height="600" />
+    </div>
+</body>
+</html>

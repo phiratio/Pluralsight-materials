@@ -1,0 +1,129 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+	
+</head>
+<body>
+
+<script type="text/javascript" >
+
+	
+$(function() {
+	
+	var arrLen = 1000;
+	var arr = [arrLen];
+	for(var i=0; i<arrLen; i++) {
+		arr[i] = i;
+	}
+	
+	var methods = [
+		{ name: "Simple Append", run: true },
+		{ name: "Inserting Once Using String", run: true },
+		{ name: "Using Array Join", run: true },
+		{ name: "Using Array Join And For Loop", run: true },
+		{ name: "Inserting With Wrapping Element", run: true },
+	];
+	
+	
+	// BASIC INSERTION
+	if(methods[0].run) {
+		console.time(methods[0].name);
+		var parent = $('#parent');
+		$.each(arr, function() {
+			parent.append("<div>" + this + "</div>");
+		});
+		console.timeEnd(methods[0].name);
+	}
+	
+	if(methods[1].run) {
+		console.time(methods[1].name);
+		var appendString = "";
+		$.each(arr, function() {
+			appendString += "<div>" + this + "</div>";
+		});
+		$('#parent').append(appendString);
+		console.timeEnd(methods[1].name);
+	}
+	
+	if(methods[2].run) {
+		console.time(methods[2].name);
+		var appendArray = [];
+		var i = 0;
+		$.each(arr, function() {
+			appendArray[i++] = "<div>";
+			appendArray[i++] = this;
+			appendArray[i++] = "</div>";
+		});
+		$('#parent').append(appendArray.join(''));
+		console.timeEnd(methods[2].name);
+	}
+	
+	if(methods[3].run) {
+		console.time(methods[3].name);
+		var appendArray = [];
+		var i = 0;
+		for(var j=0; j<arrLen; j++) {
+			appendArray[i++] = "<div>";
+			appendArray[i++] = arr[j];
+			appendArray[i++] = "</div>";
+		}
+		$('#parent').append(appendArray.join(''));
+		console.timeEnd(methods[3].name);
+	}
+	
+	if(methods[4].run) {
+		console.time(methods[4].name);
+		var appendString = "";
+		$.each(arr, function() {
+			appendString += "<div>" + this + "</div>";
+		});
+		$('#parent').append('<div>' + appendString + '</div>');	
+		console.timeEnd(methods[4].name);
+	}
+	
+
+	
+	/*
+	// METHOD 6 - wrap a parent element around all elements and for loop and array join
+	//console.time("6");
+	var appendArray2 = [];
+	var i = 0;
+	for(var j=0; j<arrLen; j++) {
+		appendArray2[i++] = "<div>";
+		appendArray2[i++] = arr[j];
+		appendArray2[i++] = "</div>";
+	}
+	$('#parent').append('<div>' + appendArray2.join('') + '</div>');
+	//console.timeEnd("6");
+	*/
+	
+	/*
+	// METHOD 7 - wrap a parent element around all elements and each loop and string append
+	console.time();
+	var appendString3 = [];
+	$.each(arr, function() {
+		appendString3 += "<div>" + this + "</div>";
+	});
+	$('#parent').append('<div>' + appendString3 + '</div>');
+	console.timeEnd();
+	*/
+	
+	/*
+	// METHOD 8 - wrap a parent element around all elements and for loop and string append
+	console.time("8");
+	var start = new Date();
+	var appendString4 = [];
+	for(var j=0; j < arrLen; j++) {
+		appendString4 += "<div>" + arr[j] + "</div>";
+	}
+	$('#parent').append('<div>' + appendString4 + '</div>');
+	console.timeEnd("8");
+	*/
+	
+});
+	
+</script>
+
+	<div id="parent" style="display:none" />
+</body>
+</html>

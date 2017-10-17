@@ -1,0 +1,46 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+
+	$(function() {
+	
+		var animal = {
+			eat: function() { console.log("I'm eating"); }
+		}
+		
+		var dog = {
+			bark: function() { console.log("I'm barking"); }
+		}
+		
+		var cat = {
+			meow: function() { console.log("meow"); }
+		}
+		
+		var sub = $.sub();
+		
+		sub.old_extend = sub.extend;
+		sub.extend = function(target, source) {return sub.old_extend(true, target, source); }
+		
+		var catDog = {};
+		sub.extend(catDog, cat, dog, animal);
+		console.log(catDog.eat);
+		console.log(catDog.bark);
+		console.log(catDog.meow);
+		
+		var catDog = {};
+		$.extend(catDog, cat, dog, animal);
+		console.log(catDog.eat);
+		console.log(catDog.bark);
+		console.log(catDog.meow);
+		
+	});
+		
+	</script>
+	
+	<h1>Sub Demo</h1>
+	
+</body>
+</html>
