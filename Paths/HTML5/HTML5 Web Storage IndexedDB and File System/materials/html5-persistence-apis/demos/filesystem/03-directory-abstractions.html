@@ -1,0 +1,280 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/png" href="../../img/favicon.png">
+        <meta charset="utf-8" />
+        <title>Directory Abstractions</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../content/bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="../../content/fontawesome/font-awesome.css" rel="stylesheet" />
+        <link href="../../content/global.css" rel="stylesheet" media="screen">
+        <link href="../../content/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article>
+            <h1>Directory Abstractions</h1>
+            <div id="unsupported" class="col-sm-7 alert alert-danger none">
+                <p>
+                    <strong class="lead">:( This browser does not support the HTML5 file system API</strong>,
+                    therefore this sample will not work in this browser.
+                    When these samples were developed, <a href="http://google.com/chrome" target="_blank">Chrome</a>
+                    and <a href="http://opera.com" target="_blank">Opera</a> are the only browsers which included
+                    support for the HTML5 file system API.
+                </p>
+                <p>You can check out the <a href="http://caniuse.com/filesystem" target="_blank">caniuse.com</a> page for the most recent browser support details.</p>
+            </div>
+            <div class="row control-row">
+                <div class="col-sm-7">
+                    <input type="text"
+                           id="input-box" name="input-box"
+                           class="form-control"
+                           placeholder="paths, names, etc." />
+                </div>
+            </div>
+        </article>
+        <div id="result-stub" class="well hidden">
+        </div>
+
+        <div id="explanation" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Local File System Abstractions</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="well well-sm">The <code>localFileSystem</code> JavaScript module includes abstractions
+                        for managing both folders and files on the browser's file system.</p>
+                        <h3>Function Signature</h3>
+                        <p>Each of the main <code>localFileSystem</code> functions used in this demo have a parameter
+                        list of <code>pathOrRoot</code>, <code>success</code> and <code>fail</code>. The
+                        <code>success</code> and <code>fail</code> parameters are for the typical callback
+                        functions.</p>
+                        <p>The first parameter, <code>pathOrRoot</code>, can take two forms. Take <code>createDirectory</code> for instance.
+                        If you pass a string like <code>Documents/Work/Drafts</code> as the first parameter then the directories
+                        are recursively created at the root of the file system. However if you pass an options object as the first
+                        parameter:</p>
+
+                        <pre>{
+    path: 'Documents/Work/Drafts,
+
+    root: {} // where 'root' is an 
+             // instance of an 
+             // existing DirectoryEntry
+}
+</pre>
+                        <p>...then you can provide the starting location of the operation.</p>
+
+                        <h3>Not Production Ready</h3>
+                        <p>This module is meant for instructional purposes and would 
+                        need a number of features added before being fit for production use.</p>
+                        <p>For instance:</p>
+                        <ul>
+                            <li><strong>File System Request</strong>: The request for the file 
+                                system is hard-coded as <code>TEMPORARY</code> and only allocates 2MB of storage space. 
+                                This is by design for the sample in order to keep the code simple. In real-world
+                                contexts you would want to make this configurable.</li>
+                            <li><strong>Default Error Handler</strong>: The default error handler simply logs
+                                errors to the Result pane on this page. Again, in the real world
+                                you might want to log this error in local storage, send to the server
+                                via Ajax, or any number of other strategies.</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script data-step="1" data-label="Create (path)">
+            var step1 = function () {
+                //---
+                var name = $('#input-box').val();
+
+                localFileSystem.createDirectory(name, function (directory) {
+
+                    $$result.log(directory);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Create (root)">
+            var step2 = function () {
+                //---
+                var name = $('#input-box').val();
+
+                localFileSystem.getDirectory(
+
+                    'Documents',
+
+                    function (directory) {
+
+                        var options = localFileSystem.createOptions(name, directory);
+
+                        localFileSystem.createDirectory(options, function (subDirectory) {
+
+                            $$result.log('Created: ' + subDirectory.fullPath);
+
+                            $$result.log(subDirectory);
+
+                        });
+
+                    });
+                //---
+            }
+        </script>
+
+        <script data-step="3" data-label="Get Directory">
+            var step3 = function () {
+                //---
+                var name = $('#input-box').val();
+
+                localFileSystem.getDirectory(name, function (directory) {
+
+                    $$result.log(directory);
+
+                });
+                //---
+            }
+        </script>
+
+        <script data-step="4" data-label="Exists">
+            var step4 = function () {
+                //---
+                var name = $('#input-box').val();
+
+                localFileSystem.directoryExists(name, function (result) {
+
+                    if (result.exists) {
+
+                        $$result.log('Directory exists');
+
+                    } else {
+
+                        $$result.log('Directory does not exist');
+
+                    }
+
+                });
+                //---
+            }
+        </script>
+
+        <script data-step="5" data-label="Get Contents">
+            var step5 = function () {
+                //---
+                var path = $('#input-box').val();
+
+                localFileSystem.getDirectoryEntries(path, function (entries) {
+
+                    if (entries.length === 0) {
+
+                        $$result.log(path + ' is empty');
+
+                    } else {
+
+                        entries.forEach(function (entry) {
+
+                            $$result.log(entry.fullPath);
+
+                        });
+                    }
+
+                });
+                //---
+            }
+        </script>
+        
+        <script data-step="6" data-label="Delete">
+            var step6 = function () {
+                //---
+                var
+                    path = $('#input-box').val(),
+                    options = localFileSystem.createOptions(path);
+
+                options.recursive = true;
+
+                localFileSystem.deleteDirectory(options, function (directory) {
+
+                    $$result.log(options.path + ' is deleted');
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="7" data-label="Move">
+            var step7 = function () {
+                //---
+                var 
+                    path = 'Documents',
+                    destinationPath = 'Test';
+
+                localFileSystem.moveDirectory(path, destinationPath, function () {
+
+                    $$result.log('Directory is moved');
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="8" data-label="Rename">
+            var step8 = function () {
+                //---
+                var
+                    path = 'Documents',
+                    newName = 'Documents-Old';
+
+                localFileSystem.renameDirectory(path, newName, function () {
+
+                    $$result.log('Directory is renamed');
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="9" data-label="Copy">
+            var step9 = function () {
+                //---
+                var
+                    path = 'Documents',
+                    destinationPath = 'Test';
+
+                localFileSystem.copyDirectory(path, destinationPath, function () {
+
+                    $$result.log('Directory is copied');
+
+                });
+                //---
+            }
+        </script>
+        <script data-label="Command Object Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3,
+                step4: step4,
+                step5: step5,
+                step6: step6,
+                step7: step7,
+                step8: step8,
+                step9: step9
+            };
+        </script>
+        <script>
+            var demoLoad = function () {
+
+                if (!window.requestFileSystem) {
+
+                    $('#unsupported').fadeIn();
+
+                }
+
+            };
+        </script>
+        <script data-main="../../scripts/main" src="../../scripts/require-jquery.js"></script>
+        <script src="localFileSystem.js"></script>
+    </body>
+</html>

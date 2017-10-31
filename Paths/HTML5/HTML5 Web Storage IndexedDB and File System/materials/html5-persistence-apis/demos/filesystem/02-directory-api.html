@@ -1,0 +1,378 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/png" href="../../img/favicon.png">
+        <meta charset="utf-8" />
+        <title>File System Directories</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../content/bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="../../content/fontawesome/font-awesome.css" rel="stylesheet" />
+        <link href="../../content/global.css" rel="stylesheet" media="screen">
+        <link href="../../content/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article>
+            <h1>Directories</h1>
+            <div id="unsupported" class="col-sm-7 alert alert-danger none">
+                <p>
+                    <strong class="lead">:( This browser does not support the HTML5 file system API</strong>,
+                    therefore this sample will not work in this browser.
+                    When these samples were developed, <a href="http://google.com/chrome" target="_blank">Chrome</a>
+                    and <a href="http://opera.com" target="_blank">Opera</a> are the only browsers which included
+                    support for the HTML5 file system API.
+                </p>
+                <p>You can check out the <a href="http://caniuse.com/filesystem" target="_blank">caniuse.com</a> page for the most recent browser support details.</p>
+            </div>
+            <div class="row control-row">
+                <div class="col-sm-7">
+                    <input type="text" id="directory-names" name="directory-names" placeholder="directory name(s)" class="form-control" />
+                </div>
+            </div>
+        </article>
+        <div id="result-stub" class="well hidden">
+        </div>
+        
+        <script data-step="1" data-label="Create">
+            var step1 = function() {
+                //---
+                var 
+                    directoryName = $('#directory-names').val();
+
+                localFileSystem.request(function(fileSystem) {
+
+                    fileSystem.root.getDirectory(
+
+                        directoryName,
+
+                        { create: true },
+                        // { create: true, exclusive: true },
+
+                        function(directory) {
+
+                            $$result.logBold(directoryName + ' created')
+
+                            $$result.log(directory);
+                        },
+
+                        localFileSystem.defaultErrorHandler);
+                });
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Read">
+            var step2 = function() {
+                //---
+                localFileSystem.request(function(fileSystem) {
+
+                    fileSystem.root.getDirectory(
+
+                        $('#directory-names').val(),
+
+                        {},
+
+                        function(directory) {
+
+                            $$result.logBold('Directory read')
+
+                            $$result.log(directory);
+                        },
+
+                        localFileSystem.defaultErrorHandler);
+                });
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Sub Directories">
+            var step3 = function () {
+                //---
+                var
+                    fail = localFileSystem.defaultErrorHandler,
+                    names = $('#directory-names').val().split('/');
+
+                var createDirectory = function (directoryNames, rootDirectory) {
+
+                    if (directoryNames.length > 0) {
+
+                        var directoryName = directoryNames[0];
+
+                        rootDirectory.getDirectory(
+
+                            directoryName,
+
+                            { create: true },
+
+                            function (directory) {
+
+                                $$result.log('Created: ' + directory.fullPath);
+
+                                if (directoryNames.length > 0) {
+
+                                    createDirectory(directoryNames.slice(1), directory);
+
+                                }
+
+                            },
+
+                            fail);
+
+                    }
+
+                };
+
+                localFileSystem.request(function (fileSystem) {
+
+                    createDirectory(names, fileSystem.root);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="4" data-label="List Contents">
+            var step4 = function () {
+                //---
+                var
+                    fail = localFileSystem.defaultErrorHandler,
+                    directoryNames = $('#directory-names').val().split('/');
+
+                var list = function (rootDirectory, directoryName) {
+                    
+                    var _list = function (directory) {
+
+                        var rdr = directory.createReader();
+
+                        rdr.readEntries(function (entries) {
+
+                            if (entries.length === 0) {
+
+                                $$result.log(directory.fullPath + ': Empty');
+
+                            } else {
+                                entries.forEach(function (entry) {
+
+                                    if (entry.isDirectory) {
+
+                                        $$result.log('Directory: ' + entry.fullPath);
+
+                                        list(directory, entry.name);
+
+                                    } else if (entry.isFile) {
+
+                                        $$result.log('File: ' + entry.fullPath);
+
+                                    }
+
+                                });
+
+                            }
+
+                        }, fail);
+
+                    };
+
+                    if (!directoryName) {
+
+                        _list(rootDirectory);
+
+                    } else {
+
+                        rootDirectory.getDirectory(
+
+                            directoryName,
+
+                            {},
+
+                            function (directory) {
+
+                                _list(directory);
+
+                            });
+                    }
+                }
+
+                localFileSystem.request(function (fileSystem) {
+
+                    list(fileSystem.root);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="5" data-label="Delete">
+            var step5 = function() {
+                //---
+                var
+                    fail = localFileSystem.defaultErrorHandler,
+                    path = $('#directory-names').val();
+
+                localFileSystem.request(function (fileSystem) {
+
+                    fileSystem.root.getDirectory(
+
+                        path,
+
+                        {},
+
+                        function (directory) {
+
+                            directory.remove(function () {
+
+                                $$result.log(directory.fullPath + ' deleted');
+
+                            }, fail);
+
+                        },
+
+                        fail);
+                });
+                //---
+            }
+        </script>
+        <script data-step="6" data-label="Deep Delete">
+            var step6 = function () {
+                //---
+                var
+                    fail = localFileSystem.defaultErrorHandler,
+                    path = $('#directory-names').val();
+
+                localFileSystem.request(function (fileSystem) {
+
+                    if (path.length === 0) {
+
+                        $$result.logBold('You can not delete the root.');
+
+                    } else {
+
+                        fileSystem.root.getDirectory(
+
+                            path,
+
+                            {},
+
+                            function (directory) {
+
+                                directory.removeRecursively(function () {
+
+                                    $$result.log('\'' + directory.name + '\' and all contents are deleted');
+
+                                }, fail);
+
+                            },
+
+                            fail);
+                    }
+                });
+                //---
+            }
+        </script>
+        <script data-step="7" data-label="Move">
+            var step7 = function () {
+                //---
+                var fail = localFileSystem.defaultErrorHandler;
+
+                localFileSystem.request(function (fileSystem) {
+
+                    fileSystem.root.getDirectory('Test', {},
+
+                            function (dest) {
+
+                                fileSystem.root.getDirectory('Documents', {},
+
+                                    function (dir) {
+
+                                        dir.moveTo(dest);
+
+                                        $$result.log(dir.fullPath + ' moved to ' + dest.fullPath);
+
+                                    },
+
+                                    fail);
+
+                            },
+
+                            fail);
+                });
+                //---
+            }
+        </script>
+        <script data-step="8" data-label="Rename">
+            var step8 = function () {
+                //---
+                var
+                    fail = localFileSystem.defaultErrorHandler;
+
+                localFileSystem.request(function (fileSystem) {
+
+                    fileSystem.root.getDirectory('Documents', {},
+
+                            function (dir) {
+
+                                dir.moveTo(fileSystem.root, 'Documents-Old')
+
+                                $$result.log('Directory renamed');
+
+                            },
+
+                            fail);
+                });
+                //---
+            }
+        </script>
+        <script data-step="9" data-label="Copy">
+            var step9 = function () {
+                //---
+                var fail = localFileSystem.defaultErrorHandler;
+
+                localFileSystem.request(function (fileSystem) {
+
+                    fileSystem.root.getDirectory('Test', {},
+
+                            function (dest) {
+
+                                fileSystem.root.getDirectory('Documents', {},
+
+                                    function (dir) {
+
+                                        dir.copyTo(dest);
+
+                                        $$result.log('Directory copied');
+
+                                    },
+
+                                    fail);
+
+                            },
+
+                            fail);
+                });
+                //---
+            }
+        </script>
+        <script data-label="Command Object Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3,
+                step4: step4,
+                step5: step5,
+                step6: step6,
+                step7: step7,
+                step8: step8,
+                step9: step9
+            };
+        </script>
+        <script>
+            var demoLoad = function () {
+
+                if (!window.requestFileSystem) {
+
+                    $('#unsupported').fadeIn();
+
+                }
+
+            };
+        </script>
+        <script data-main="../../scripts/main" src="../../scripts/require-jquery.js"></script>
+        <script src="localFileSystem-basic.js"></script>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/png" href="../../img/favicon.png">
+        <meta charset="utf-8" />
+        <title>amplify.js</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../content/bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="../../content/fontawesome/font-awesome.css" rel="stylesheet" />
+        <link href="../../content/global.css" rel="stylesheet" media="screen">
+        <link href="../../content/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article>
+            <h1><a href="http://amplifyjs.com/api/store/" target="_blank">amplify.js</a></h1>
+        </article>
+        <div id="result-stub" class="well hidden">
+        </div>
+        
+        <script data-step="1" data-label="Basics">
+            var step1 = function() {
+                //---
+                amplify.store('course',
+                {
+                    name: 'HTML5 Web Storage, IndexedDB and File System',
+                    author: 'Craig Shoemaker'
+                });
+
+                var course = amplify.store('course');
+
+                $$result.log(course);
+
+                amplify.store('libraries',
+                    ['amplify.js', 'store.js', 'lawnchair.js']);
+
+                var all = amplify.store();
+
+                $$result.log(all);
+                //---
+            }
+        </script>
+        <script data-label="Command Object Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1
+            };
+        </script>
+        <script>
+            var demoLoad = function () {
+
+                
+
+            };
+        </script>
+        <script data-main="../../scripts/main" src="../../scripts/require-jquery.js"></script>
+    </body>
+</html>

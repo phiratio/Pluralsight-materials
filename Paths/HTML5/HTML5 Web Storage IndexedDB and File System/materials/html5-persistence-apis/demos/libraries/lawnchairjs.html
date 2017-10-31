@@ -1,0 +1,102 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/png" href="../../img/favicon.png">
+        <meta charset="utf-8" />
+        <title>lawnchair.js</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../content/bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="../../content/fontawesome/font-awesome.css" rel="stylesheet" />
+        <link href="../../content/global.css" rel="stylesheet" media="screen">
+        <link href="../../content/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article>
+            <h1><a href="http://brian.io/lawnchair/" target="_blank">lawnchair.js</a></h1>
+        </article>
+        <div id="result-stub" class="well hidden">
+        </div>
+        
+        <script data-step="1" data-label="Saving Data">
+            var step1 = function() {
+                //---
+                var st = Lawnchair({ adapter: 'dom' }, function (store) {
+
+                    //store.nuke();
+
+                    store.save({
+
+                        key: 'user',
+                        name: 'Craig Shoemaker',
+                        twitter: '@craigshoemaker'
+
+                    }, function (user) {
+
+                        $$result.log(user);
+
+                    });
+
+                    store.save({
+
+                        name: 'HTML5 Fundamentals',
+                        author: 'Craig Shoemaker'
+
+                    }, function (course) {
+
+                        $$result.log(course);
+
+                    });
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Keys">
+            var step2 = function () {
+                //---
+                var st = Lawnchair({ adapter: 'dom' }, function (store) {
+
+                    store.keys(function (keys) {
+
+                        debugger;
+
+                        $$result.log(keys);
+
+                    });
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Get Data">
+            var step3 = function () {
+                //---
+                var st = Lawnchair({ adapter: 'dom' }, function (store) {
+
+                    store.get('user', function (user) {
+
+                        $$result.log(user);
+
+                    });
+
+                });
+                //---
+            }
+        </script>
+        <script data-label="Command Object Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3
+            };
+        </script>
+        <script>
+            var demoLoad = function () {
+
+            };
+        </script>
+        <script data-main="../../scripts/main" src="../../scripts/require-jquery.js"></script>
+        <script src="../../scripts/lawnchair-0.6.1.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,167 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="../../img/favicon.png">
+    <meta charset="utf-8" />
+    <title>Knockout.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="../../content/fontawesome/font-awesome.css" rel="stylesheet" />
+    <link href="../../content/global.css" rel="stylesheet" media="screen">
+    <link href="../../content/github-theme.css" rel="stylesheet" media="screen">
+    <style>
+        .control-row button {
+            margin-bottom:1em;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <h1>Knockout.js</h1>
+        <div class="control-row row">
+            <div class="col-sm-6">
+                <table class="table table-bordered table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th>First</th>
+                            <th>Last</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="template: { name: 'list-template', foreach: people }"></tbody>
+                </table>
+                <script type="text/html" id="list-template">
+                    <tr>
+                        <td><span data-bind="text: firstName"></span></td>
+                        <td><span data-bind="text: lastName"></span></td>
+                    </tr>
+                </script>
+            </div>
+            <div class="col-sm-1">
+                <button type="button" class="btn btn-primary" data-bind="click: sayHi">Click Me</button>
+            </div>
+        </div>
+    </article>
+    <div id="result-stub" class="well hidden">
+    </div>
+
+        <script data-step="1"
+                data-listingonly="true"
+                title=""
+                data-label="HTML">
+            var step1 = function () {
+                /*
+                //---
+                <button type="button" 
+                        data-bind="click: sayHi">Click Me</button>
+
+                <table class="table table-bordered table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th>First</th>
+                            <th>Last</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="template: { name: 'list-template', foreach: people }"></tbody>
+                </table>
+
+                <script type="text/html" id="list-template">
+                    <tr>
+                        <td><span data-bind="text: firstName"></span></td>
+                        <td><span data-bind="text: lastName"></span></td>
+                    </tr>
+                < /script>
+                //---
+                */
+            }
+        </script>
+        <script data-step="2"
+                data-listingonly="true"
+                title=""
+                data-label="JavaScript">
+            var step2 = function () {
+                //---
+                var viewModel = (function () {
+
+                    var vm = {
+
+                        people: ko.observableArray($.mockJSON.generateFromTemplate({
+                            'people|2-2': [{
+                                'firstName': '@MALE_FIRST_NAME',
+                                'lastName': '@LAST_NAME',
+                                'age|18-85': 0
+                            }]
+                        }).people),
+
+                        sayHi: function () {
+
+                            $$result.log('Hello there :)');
+
+                        },
+
+                        init: function () {
+
+                            ko.applyBindings(vm);
+
+                        }
+
+                    };
+
+                    $(function () {
+
+                        vm.init();
+
+                    });
+
+                })();
+                //---
+            }
+        </script>
+    <script data-label="Command Object Mapping">
+        var _commands = {
+            currentStep: 0,
+            step1: step1,
+            step2: step2
+        };
+    </script>
+    <script>
+        var demoLoad = function () {
+
+            var viewModel = (function () {
+
+                var vm = {
+
+                    people: ko.observableArray($.mockJSON.generateFromTemplate({
+                        'people|2-2': [{
+                            'firstName': '@MALE_FIRST_NAME',
+                            'lastName': '@LAST_NAME',
+                            'age|18-85': 0
+                        }]
+                    }).people),
+
+                    sayHi: function () {
+
+                        $$result.log('Hello there :)');
+
+                    },
+
+                    init: function () {
+
+                        ko.applyBindings(vm);
+
+                    }
+
+                };
+
+                $(function () {
+
+                    vm.init();
+
+                });
+
+            })();
+
+        };
+    </script>
+    <script data-main="../../scripts/main" src="../../scripts/require-jquery.js"></script>
+</body>
+</html>
