@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="../../img/favicon.png">
+    <meta charset="utf-8" />
+    <title>mockJSON Library</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="../../content/fontawesome/font-awesome.css" rel="stylesheet" />
+    <link href="../../content/global.css" rel="stylesheet" media="screen">
+    <link href="../../content/github-theme.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <article>
+        <h1><a href="http://experiments.mennovanslooten.nl/2010/mockjson/" target="_blank">mockJSON</a></h1>
+    </article>
+    <div id="result-stub" class="well hidden">
+    </div>
+
+        <script data-step="1"
+                title=""
+                data-label="Generate From Template">
+            var step1 = function () {
+                //---
+                var people = $.mockJSON.generateFromTemplate({
+                    'people|5-5': [{
+                        'firstName': '@MALE_FIRST_NAME',
+                        'lastName': '@LAST_NAME',
+                        'age|18-85': 0
+                    }]
+                }).people;
+
+                people.forEach(function (person) {
+                    $$result.log(person);
+                });
+                //---
+            }
+        </script>
+        
+    <script data-label="Command Object Mapping">
+        var _commands = {
+            currentStep: 0,
+            step1: step1
+        };
+    </script>
+    <script data-main="../../scripts/main" src="../../scripts/require-jquery.js"></script>
+</body>
+</html>

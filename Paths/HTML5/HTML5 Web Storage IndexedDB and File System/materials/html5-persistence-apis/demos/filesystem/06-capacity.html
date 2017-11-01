@@ -1,0 +1,162 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="../../img/favicon.png">
+    <meta charset="utf-8" />
+    <title>Capacity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="../../content/fontawesome/font-awesome.css" rel="stylesheet" />
+    <link href="../../content/global.css" rel="stylesheet" media="screen">
+    <link href="../../content/github-theme.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <article>
+        <h1>Capacity</h1>
+        <div id="unsupported" class="col-sm-7 alert alert-danger none">
+            <p>
+                <strong class="lead">:( This browser does not support the HTML5 file system API</strong>,
+                therefore this sample will not work in this browser.
+                When these samples were developed, <a href="http://google.com/chrome" target="_blank">Chrome</a>
+                and <a href="http://opera.com" target="_blank">Opera</a> are the only browsers which included
+                support for the HTML5 file system API.
+            </p>
+            <p>You can check out the <a href="http://caniuse.com/filesystem" target="_blank">caniuse.com</a> page for the most recent browser support details.</p>
+        </div>
+    </article>
+    <div id="result-stub" class="well hidden">
+    </div>
+
+        <script data-step="1"
+                data-label="57 MB Attempt"
+                title="">
+            var
+                largeDataFileContents = null,
+                counter = 0;
+            var step1 = function () {
+                //---
+                var lfs = localFileSystem;
+
+                var getCounter = function () {
+                    counter++; // declared in earlier scope
+                    return counter;
+                };
+
+                var save = function () {
+
+                    var filePathAndName = 'Capacity-Test/' + getCounter() + '.txt';
+
+                    $$result.log('Creating <code>' + filePathAndName + '</code> in local file system.');
+
+                    lfs.createFile(filePathAndName, function (fileEntry) {
+
+                        $$result.log('Attempting to save <code>' + filePathAndName + '</code>...');
+
+                        lfs.prependFile(filePathAndName, largeDataFileContents, 'text/plain', function () {
+
+                            $$result.log('<code>' + filePathAndName + '</code> saved');
+
+                        });
+
+                    });
+
+                };
+
+                if (largeDataFileContents === null) {
+
+                    $$result.log('Requesting large data file...');
+
+                    $.get('/demos/huge-file.txt').done(function (response) {
+
+                        try {
+
+                            largeDataFileContents = response;
+
+                            save();
+
+                        } catch (e) {
+
+                            $$result.log(e);
+
+                        }
+
+                    });
+
+                } else {
+
+                    save();
+
+                }
+                //---
+            };
+        </script>
+
+
+    <script data-label="Command Object Mapping">
+        var _commands = {
+            currentStep: 0,
+            step1: step1
+        };
+    </script>
+    <script>
+        var demoLoad = function () {
+
+            if (!window.requestFileSystem) {
+
+                $('#unsupported').fadeIn();
+
+            } else {
+
+                var
+                    lfs = localFileSystem,
+                    path = 'Capacity-Test';
+
+                lfs.setDeniedHandler(function (e) {
+
+                    $$result.log(e.message);
+
+                });
+
+                var createDirectory = function () {
+
+                    lfs.createDirectory('Capacity-Test', function (entry, info) {
+
+                        if (info.isLastDirectory) {
+
+                            $$result.log('The folder <code>Capacity-Test</code> is created for this demo.');
+
+                        }
+
+                    });
+
+                };
+
+                lfs.directoryExists(path, function (result) {
+
+                    if (result.exists) {
+
+                        var options = localFileSystem.createOptions(path, null, true, false);
+
+                        lfs.deleteDirectory(options, function () {
+
+                            createDirectory();
+
+                        });
+
+                    } else {
+
+                        createDirectory();
+
+                    }
+
+                });
+
+            }
+
+        };
+    </script>
+    <script data-main="../../scripts/main" src="../../scripts/require-jquery.js"></script>
+    <script src="localFileSystem.js"></script>
+</body>
+
+</html>

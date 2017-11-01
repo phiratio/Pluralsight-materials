@@ -1,0 +1,285 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/png" href="../../img/favicon.png">
+        <meta charset="utf-8" />
+        <title>File Abstractions</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../content/bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="../../content/fontawesome/font-awesome.css" rel="stylesheet" />
+        <link href="../../content/global.css" rel="stylesheet" media="screen">
+        <link href="../../content/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article>
+            <h1>File Abstractions</h1>
+            <div id="unsupported" class="col-sm-7 alert alert-danger none">
+                <p>
+                    <strong class="lead">:( This browser does not support the HTML5 file system API</strong>,
+                    therefore this sample will not work in this browser.
+                    When these samples were developed, <a href="http://google.com/chrome" target="_blank">Chrome</a>
+                    and <a href="http://opera.com" target="_blank">Opera</a> are the only browsers which included
+                    support for the HTML5 file system API.
+                </p>
+                <p>You can check out the <a href="http://caniuse.com/filesystem" target="_blank">caniuse.com</a> page for the most recent browser support details.</p>
+            </div>
+        </article>
+        <div id="result-stub" class="well hidden">
+        </div>
+        <script data-step="1" data-label="Create">
+            var step1 = function() {
+                //---
+                var
+                    lfs = localFileSystem,
+                    path = 'Projects/todo.txt';
+
+                lfs.createFile(path, function (fileEntry) {
+
+                    $$result.log(fileEntry);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Get">
+            var step2 = function () {
+                //---
+                var 
+                    lfs = localFileSystem,
+                    path = 'Projects/todo.txt';
+
+                lfs.getFile(path, function (fileEntry) {
+
+                    $$result.log(fileEntry);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Exists">
+            var step3 = function () {
+                //---
+                var
+                    lfs = localFileSystem,
+                    path = 'Projects/todo.txt';
+
+                lfs.fileExists(path, function (result) {
+
+                    if (result.exists) {
+
+                        $$result.log('File exists');
+
+                    } else {
+
+                        $$result.log('File does not exist');
+
+                    }
+
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="4" data-label="Prepend">
+            var step4 = function () {
+                //---
+                var
+                    lfs = localFileSystem,
+                    path = 'Projects/todo.txt',
+                    options = lfs.createOptions(path);
+
+                lfs.prependFile(options, 'prepended text', null, function (result) {
+
+                    $$result.log('File prepended');
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="5" data-label="Read">
+            var step5 = function () {
+                //---
+                var
+                    lfs = localFileSystem,
+                    path = 'Projects/todo.txt';
+
+                lfs.readFile(path, function (result) {
+
+                    $$result.logRaw(result);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="6" data-label="Append">
+            var step6 = function () {
+                //---
+                var
+                    lfs = localFileSystem,
+                    path = 'Projects/todo.txt',
+                    options = lfs.createOptions(path);
+
+                lfs.appendFile(options, ' appended text', null, function (result) {
+
+                    $$result.log('File appended');
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="7" data-label="Delete">
+            var step7 = function () {
+                //---
+                var
+                    lfs = localFileSystem,
+                    path = 'Projects/todo.txt';
+
+                lfs.deleteFile(path, function (result) {
+
+                    $$result.log('File deleted');
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="8" data-label="Replace">
+            var step8 = function () {
+                //---
+                var
+                    lfs = localFileSystem,
+                    path = 'Projects/todo.txt',
+                    options = lfs.createOptions(path);
+
+                lfs.replaceFile(options, 'replaced content', null, function (result) {
+
+                    $$result.log('File replaced');
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="9" data-label="Move">
+            var step9 = function () {
+                //---
+                var
+                    lfs = localFileSystem,
+                    path = 'Projects/todo.txt',
+                    destinationPath = 'Projects/Old';
+
+                lfs.moveFile(path, destinationPath,
+
+                    function (result) {
+
+                        $$result.log('File moved');
+
+                    });
+                //---
+            }
+        </script>
+        <script data-step="10" data-label="Rename">
+            var step10 = function () {
+                //---
+                var
+                    lfs = localFileSystem,
+                    path = 'Projects/todo.txt',
+                    newName = 'todo-old.txt';
+
+                lfs.renameFile(path, newName,
+
+                    function () {
+
+                        $$result.log('File renamed');
+
+                    });
+                //---
+            }
+        </script>
+        <script data-step="11" data-label="Copy">
+            var step11 = function () {
+                //---
+                var
+                    lfs = localFileSystem,
+                    path = 'Projects/todo.txt',
+                    destinationPath = 'Projects/New';
+
+                lfs.copyFile(path, destinationPath,
+
+                    function (result) {
+
+                        $$result.log('File copied');
+
+                    });
+                //---
+            }
+        </script>
+        <script data-label="Command Object Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3,
+                step4: step4,
+                step5: step5,
+                step6: step6,
+                step7: step7,
+                step8: step8,
+                step9: step9,
+                step10: step10,
+                step11: step11
+            };
+        </script>
+        <script data-main="../../scripts/main" src="../../scripts/require-jquery.js"></script>
+        <script src="../../scripts/result.js"></script>
+        <script src="localFileSystem.js"></script>
+        <script>
+            var demoLoad = function () {
+
+                if (!window.requestFileSystem) {
+
+                    $('#unsupported').fadeIn();
+
+                } else {
+
+                    localFileSystem.setDeniedHandler(function (e) {
+
+                        $$result.log(e.message);
+
+                    });
+
+                    var options = localFileSystem.createOptions('Projects');
+
+                    var createDefaultDirectories = function () {
+
+                        localFileSystem.createDirectory(options.path, function (directoryEntry) {
+
+                            $$result.logRaw('The empty <code>' + options.path + '</code> directory is created for this demo.');
+
+                        });
+
+                    };
+
+                    localFileSystem.directoryExists(options.path, function (result) {
+
+                        if (result.exists) {
+
+                            options.recursive = true;
+
+                            localFileSystem.deleteDirectory(options, function () {
+
+                                createDefaultDirectories();
+
+                            });
+
+                        } else {
+
+                            createDefaultDirectories();
+
+                        }
+
+                    });
+
+                }
+            };
+        </script>
+    </body>
+</html>

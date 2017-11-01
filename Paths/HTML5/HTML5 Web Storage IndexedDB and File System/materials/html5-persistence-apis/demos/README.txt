@@ -1,0 +1,1 @@
+unzip huge-file before testing the demo

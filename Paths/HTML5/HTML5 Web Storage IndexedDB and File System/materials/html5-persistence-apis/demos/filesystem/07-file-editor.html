@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>File Editor</title>
+    <link rel="icon" type="image/png" href="../../img/favicon.png">
+    <link href="../../content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="../../content/fontawesome/font-awesome.css" rel="stylesheet" />
+    <link href="../../content/global.css" rel="stylesheet" />
+    <style>
+        header {
+            margin-top:10px;
+        }
+
+        textarea {
+            min-height:200px;
+        }
+
+        #saved-message {
+            padding:6px;
+            margin-bottom:0px;
+        }
+        
+        .controls .form-control {
+            display: inline;
+            width: 42%;
+        }
+
+        .controls button {
+            height:2.4em;
+        }
+
+        .push-down-top-xs {
+            margin-top: 8px;
+        }
+
+        .push-down-top-sm {
+            margin-top:15px;
+        }
+
+        .none {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <article class="container">
+        <h1>File Editor</h1>
+
+        <div id="unsupported" class="col-sm-7 alert alert-danger none">
+            <p>
+                <strong class="lead">:( This browser does not support the HTML5 file system API</strong>,
+                therefore this sample will not work in this browser.
+                When these samples were developed, <a href="http://google.com/chrome" target="_blank">Chrome</a>
+                and <a href="http://opera.com" target="_blank">Opera</a> are the only browsers which included
+                support for the HTML5 file system API.
+            </p>
+            <p>You can check out the <a href="http://caniuse.com/filesystem" target="_blank">caniuse.com</a> page for the most recent browser support details.</p>
+        </div>
+
+        <div class="controls row">
+            <div class="col-sm-8">
+                <input type="text" class="form-control"
+                       id="directory-text" name="directory-text"
+                       placeholder="directory name"
+                       data-bind="value: directoryName" />
+
+                /
+
+                <input type="text" class="form-control"
+                       id="file-text" name="file-text"
+                       placeholder="file name"
+                       data-bind="value: fileName" />
+
+                <button type="button" id="open-button"
+                        class="btn btn-default fa fa-file-text-o"
+                        title="Open File"
+                        data-bind="click: openFile"></button>
+
+                <button type="button" id="save-button"
+                        class="btn btn-default fa fa-save"
+                        title="Save File"
+                        data-bind="click: saveFile"></button>
+            </div>
+            <div class="col-sm-4">
+                <div id="saved-message" class="none alert alert-success">
+                    <strong class="text-info">File Saved</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="row push-down-top-sm">
+            <div class="col-sm-12">
+                <textarea id="content-text" placeholder="contents"
+                          class="form-control"
+                          data-bind="value: content"></textarea>
+            </div>
+        </div>
+
+    </article>
+
+    <script src="../../scripts/jquery.js"></script>
+    <script src="../../scripts/bootstrap.js"></script>
+    <script src="../../scripts/knockout-3.0.0.js"></script>
+    <script src="../../scripts/layoutMaster.js"></script>
+    <script src="localFileSystem.js"></script>
+    <script src="viewModel.js"></script>
+
+</body>
+</html>
