@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+    <title>Basic Example</title>
+  </head>
+  <body>
+    <div id="container" />
+      
+    <script src="react.js"></script>
+    <script src="JSXTransformer.js"></script>
+
+    <script type="text/jsx">
+      /** @jsx React.DOM */
+      var Hello = React.createClass({
+        render: function() {
+          return    <div>
+                        <h1>Hello at {this.props.now}</h1>
+                    </div>;
+        }
+      });   
+      
+      React.renderComponent(
+        <Hello now={new Date().toString()} />, 
+        document.getElementById('container')
+      );
+    </script>
+  </body>
+</html>
+
+<!-- 
+
+    Things to note
+    --------------
+
+    * container binds to the react component
+    * need to include the JSXTransformer script
+    * script blocks that include jsx need to have type="text/jsx"
+    * the script block must begin with the jsx comment
+    * the minimum requirement for a component is to have a render function that returns a react component.
+
+-->
+
