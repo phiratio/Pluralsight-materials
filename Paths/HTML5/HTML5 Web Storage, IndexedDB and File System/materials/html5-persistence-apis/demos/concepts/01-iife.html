@@ -1,0 +1,96 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="../../img/favicon.png">
+    <meta charset="utf-8" />
+    <title>IIFE : Immediately Invoked Function Expression</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="../../content/fontawesome/font-awesome.css" rel="stylesheet" />
+    <link href="../../content/global.css" rel="stylesheet" media="screen">
+    <link href="../../content/github-theme.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <article>
+        <h1><abbr title="Immediately Invoked Function Expression">IIFE</abbr></h1>
+    </article>
+    <div id="result-stub" class="well hidden">
+    </div>
+
+        <script data-step="1"
+                data-listingonly="true"
+                title=""
+                data-label="Basic Syntax">
+            var step1 = function () {
+                //---
+                var viewModel = (function () { })();
+                //---
+            }
+        </script>
+        <script data-step="2"
+                data-listingonly="true"
+                title=""
+                data-label="Common Syntax">
+            var step2 = function () {
+                //---
+                var viewModel = (function () {
+
+                    var vm = {
+
+                        init: function () {
+
+                            // initialize
+
+                        }
+
+                    };
+
+                    $(function () {
+
+                        vm.init();
+
+                    });
+
+                })();
+                //---
+            }
+        </script>
+        <script data-step="3"
+                data-listingonly="true"
+                title=""
+                data-label="Revealing Module">
+            var step3 = function () {
+                //---
+                var module = (function () {
+
+                    var m = {
+
+                        privateFunction: function () {
+
+                        },
+
+                        publicFunction: function () {
+
+                        }
+
+                    };
+
+                    return {
+                        publicFunction: m.publicFunction
+                    };
+
+                })();
+                //---
+            }
+        </script>
+
+    <script data-label="Command Object Mapping">
+        var _commands = {
+            currentStep: 0,
+            step1: step1,
+            step2: step2
+        };
+    </script>
+    <script data-main="../../scripts/main" src="../../scripts/require-jquery.js"></script>
+</body>
+</html>

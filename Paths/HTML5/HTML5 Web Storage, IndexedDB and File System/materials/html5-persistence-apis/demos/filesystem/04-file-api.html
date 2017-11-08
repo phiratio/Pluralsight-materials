@@ -1,0 +1,402 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/png" href="../../img/favicon.png">
+        <meta charset="utf-8" />
+        <title>File System Files</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../content/bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="../../content/fontawesome/font-awesome.css" rel="stylesheet" />
+        <link href="../../content/global.css" rel="stylesheet" media="screen">
+        <link href="../../content/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article>
+            <h1>Files</h1>
+            <div id="unsupported" class="col-sm-7 alert alert-danger none">
+                <p>
+                    <strong class="lead">:( This browser does not support the HTML5 file system API</strong>,
+                    therefore this sample will not work in this browser.
+                    When these samples were developed, <a href="http://google.com/chrome" target="_blank">Chrome</a>
+                    and <a href="http://opera.com" target="_blank">Opera</a> are the only browsers which included
+                    support for the HTML5 file system API.
+                </p>
+                <p>You can check out the <a href="http://caniuse.com/filesystem" target="_blank">caniuse.com</a> page for the most recent browser support details.</p>
+            </div>
+            <div class="row control-row">
+                <div class="col-sm-7">
+                    <input type="text" id="input-box" placeholder="file contents, etc." class="form-control" />
+                </div>
+            </div>
+        </article>
+        <div id="result-stub" class="well hidden">
+        </div>
+        
+        <script data-step="1" data-label="Create">
+            var step1 = function() {
+                //---
+                var
+                    fileName = 'notes.txt',
+                    directoryName = 'Files',
+                    lfs = localFileSystem;
+
+                lfs.getDirectory(directoryName, function (directory) {
+
+                    directory.getFile(
+
+                        fileName,
+
+                        { create: true },
+                        //{ create: true, exclusive: true },
+
+                        function (fileEntry) {
+
+                            $$result.log(fileEntry);
+
+                        },
+
+                        lfs.defaultErrorHandler);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Get">
+            var step2 = function() {
+                //---
+                var
+                    fileName = 'notes.txt',
+                    directoryName = 'Files',
+                    lfs = localFileSystem;
+
+                lfs.getDirectory(directoryName, function (directory) {
+
+                    directory.getFile(
+
+                        fileName,
+
+                        { },
+
+                        function (fileEntry) {
+
+                            $$result.log(fileEntry);
+
+                        },
+
+                        lfs.defaultErrorHandler);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Write">
+            var step3 = function () {
+                //---
+                var
+                    fileName = 'notes.txt',
+                    directoryName = 'Files',
+                    fileContents = $('#input-box').val(),
+                    lfs = localFileSystem;
+
+                lfs.getDirectory(directoryName, function (directory) {
+
+                    directory.getFile(fileName, {},
+
+                        function (fileEntry) {
+
+                            fileEntry.createWriter(function (writer) {
+
+                                writer.onwriteend = function (e) {
+
+                                    $$result.log('Write ' + fileName + ' complete');
+                                };
+
+                                writer.onerror = function (e) {
+
+                                    $$result.log(e);
+                                };
+
+                                var blob = new Blob([fileContents], { type: 'text/plain' });
+
+                                writer.write(blob);
+
+                            });
+
+                        },
+
+                        lfs.defaultErrorHandler);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="4" data-label="Read">
+            var step4 = function () {
+                //---
+                var
+                    fileName = 'notes.txt',
+                    directoryName = 'Files',
+                    lfs = localFileSystem;
+
+                lfs.getDirectory(directoryName, function (directory) {
+
+                    directory.getFile(fileName, {},
+
+                        function (fileEntry) {
+
+                            fileEntry.file(function (file) {
+
+                                var rdr = new FileReader();
+
+                                rdr.onloadend = function (e) {
+
+                                    $$result.logRaw(this.result);
+
+                                };
+
+                                rdr.onerror = function (e) {
+
+                                    $$result.log(e);
+
+                                };
+
+                                rdr.readAsText(file);
+
+                            }, lfs.defaultErrorHandler);
+
+                        },
+
+                        lfs.defaultErrorHandler);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="5" data-label="Update">
+            var step5 = function () {
+                //---
+                var
+                    fileName = 'notes.txt',
+                    directoryName = 'Files',
+                    fileContents = $('#input-box').val(),
+                    lfs = localFileSystem;
+
+                lfs.getDirectory(directoryName, function (directory) {
+
+                    directory.getFile(fileName, {},
+
+                        function (fileEntry) {
+
+                            fileEntry.createWriter(function (writer) {
+
+                                writer.seek(writer.length);
+
+                                var blob = new Blob([fileContents], { type: 'text/plain' });
+
+                                writer.onwriteend = function (e) {
+                                    $$result.log(fileName + ' updated')
+                                };
+
+                                writer.write(blob);
+
+                            }, lfs.defaultErrorHandler);
+
+                        },
+
+                        lfs.defaultErrorHandler);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="6" data-label="Delete">
+            var step6 = function () {
+                //---
+                var
+                    fileName = 'notes.txt',
+                    directoryName = 'Files',
+                    lfs = localFileSystem;
+
+                lfs.getDirectory(directoryName, function (directory) {
+
+                    directory.getFile(fileName, {},
+
+                        function (file) {
+
+                            var path = file.fullPath;
+
+                            file.remove(function () {
+
+                                $$result.log(path + ' is deleted');
+
+                            }, lfs.defaultErrorHandler);
+
+                        },
+
+                        lfs.defaultErrorHandler);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="7" data-label="Move">
+            var step7 = function () {
+                //---
+                var
+                    fileName = 'notes.txt',
+                    directoryName = 'Files',
+                    lfs = localFileSystem;
+
+                lfs.getDirectory(directoryName, function (directory) {
+
+                    directory.getFile(fileName, {},
+
+                        function (fileEntry) {
+
+                            lfs.getDirectory('Files/Drafts',
+
+                                function (directoryEntry) {
+
+                                    fileEntry.moveTo(directoryEntry);
+
+                                    $$result.log(fileName +
+                                                ' moved to ' +
+                                                directoryEntry.fullPath);
+
+                            });
+
+                        },
+
+                        lfs.defaultErrorHandler);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="8" data-label="Rename">
+            var step8 = function () {
+                //---
+                var
+                    fileName = 'notes.txt',
+                    newFileName = 'notes2.txt',
+                    directoryName = 'Files',
+                    lfs = localFileSystem;
+
+                lfs.getDirectory(directoryName, function (directory) {
+
+                    directory.getFile(fileName, {},
+
+                        function (fileEntry) {
+
+                            fileEntry.moveTo(directory, newFileName);
+
+                            $$result.log(fileName + ' renamed to ' + newFileName);
+
+                        },
+
+                        lfs.defaultErrorHandler);
+
+                });
+                //---
+            }
+        </script>
+        <script data-step="9" data-label="Copy">
+            var step9 = function () {
+                //---
+                var
+                    fileName = 'notes.txt',
+                    dirName = 'Files',
+                    lfs = localFileSystem;
+
+                lfs.getDirectory(dirName, function (dir) {
+
+                    dir.getFile(fileName, {},
+
+                        function (fileEntry) {
+
+                            lfs.getDirectory('Files/Drafts',
+
+                                function (dirEntry) {
+
+                                    fileEntry.copyTo(dirEntry);
+
+                                    $$result.log(fileName + ' copied to ' + dirEntry.fullPath);
+
+                                });
+
+                        },
+
+                        lfs.defaultErrorHandler);
+
+                });
+                //---
+            }
+        </script>
+        <script data-label="Command Object Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3,
+                step4: step4,
+                step5: step5,
+                step6: step6,
+                step7: step7,
+                step8: step8,
+                step9: step9
+            };
+        </script>
+        <script data-main="../../scripts/main" src="../../scripts/require-jquery.js"></script>
+        <script src="localFileSystem.js"></script>
+        <script>
+            var demoLoad = function () {
+
+                if (!window.requestFileSystem) {
+
+                    $('#unsupported').fadeIn();
+
+                } else {
+
+                    var
+                        options = localFileSystem.createOptions('Files'),
+                        lfs = localFileSystem;
+
+                    options.recursive = true;
+
+                    var createDefaultFolders = function () {
+
+                        lfs.createDirectory('Files/Drafts', function (directoryEntry, options) {
+
+                            if (options.isLastDirectory) {
+
+                                $$result.logRaw('The empty directories of <code>Files/Drafts</code> are created for this demo.');
+
+                            }
+
+                        });
+                    };
+
+                    lfs.directoryExists(options.path, function (result) {
+
+                        if (result.exists) {
+
+                            lfs.deleteDirectory(options, function () {
+
+                                createDefaultFolders();
+
+                            });
+
+                        } else {
+
+                            createDefaultFolders();
+
+                        }
+
+                    });
+
+                }
+
+            };
+        </script>
+    </body>
+</html>
