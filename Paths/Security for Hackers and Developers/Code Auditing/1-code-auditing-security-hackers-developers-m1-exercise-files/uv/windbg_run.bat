@@ -1,1 +1,0 @@
-windbg -g -o uv.exe
