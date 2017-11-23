@@ -2,3 +2,5 @@
 node_modules/
 /Individual course series/Object-oriented Programming in JavaScript - ES6/6-javascript-es6-object-oriented-programming-m6-exercise-files/final-working/after/node_modules/
 /Individual course series/Object-oriented Programming in JavaScript - ES6/6-javascript-es6-object-oriented-programming-m6-exercise-files/final-working/after/package-lock.json
+/npm-debug.log
+/casd

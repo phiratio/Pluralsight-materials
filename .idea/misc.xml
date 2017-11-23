@@ -3,4 +3,7 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+  <component name="WebPackConfiguration">
+    <option name="path" value="$PROJECT_DIR$/Paths/Node.js/03.BuildingJSDevelopmentEnvironment/13-javascript-development-environment-m13-exercise-files/materials/js-dev-env-demo/webpack.config.prod.js" />
+  </component>
 </project>
