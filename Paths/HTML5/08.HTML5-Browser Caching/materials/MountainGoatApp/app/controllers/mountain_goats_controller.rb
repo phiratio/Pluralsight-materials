@@ -1,0 +1,3 @@
+class MountainGoatsController < ApplicationController
+  
+end

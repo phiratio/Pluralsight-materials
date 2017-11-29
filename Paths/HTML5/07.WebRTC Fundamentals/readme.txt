@@ -1,1 +1,0 @@
-Course requires any modern HTML coding environment for the HTML5 examples (I'm using Sublime Text 2). The latest version of Chrome or Firefox and a webcam and microphone are required to test the example code.

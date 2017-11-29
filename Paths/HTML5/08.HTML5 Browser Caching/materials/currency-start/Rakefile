@@ -1,6 +1,0 @@
-require './init'
-
-desc "Run server"
-task :server do
-  exec "foreman start"
-end

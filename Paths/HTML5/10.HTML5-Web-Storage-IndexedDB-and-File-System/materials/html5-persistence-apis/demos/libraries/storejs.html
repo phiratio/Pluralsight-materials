@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/png" href="../../img/favicon.png">
+        <meta charset="utf-8" />
+        <title>store.js</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../content/bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="../../content/fontawesome/font-awesome.css" rel="stylesheet" />
+        <link href="../../content/global.css" rel="stylesheet" media="screen">
+        <link href="../../content/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article>
+            <h1><a href="https://github.com/marcuswestin/store.js" target="_blank">store.js</a></h1>
+        </article>
+        <div id="result-stub" class="well hidden">
+        </div>
+        
+        <script data-step="1" data-label="Basics">
+            var step1 = function() {
+                //---
+                if (store.enabled) {
+
+                    store.set('user', { name: 'craigshoemaker' });
+
+                    var user = store.get('user');
+
+                    $$result.log(user);
+
+                    store.set('preferences', { color: 'blue', soda: 'Cherry Coke' });
+
+                    store.set('gender', 'male');
+
+                    var all = store.getAll();
+
+                    $$result.log(all);
+
+                    store.forEach(function (key, value) {
+                        $$result.logBold(key);
+                        $$result.log(value);
+                    });
+
+                }
+                //---
+            }
+        </script>
+        <script data-label="Command Object Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1
+            };
+        </script>
+        <script>
+            var demoLoad = function () {
+
+                
+
+            };
+        </script>
+        <script data-main="../../scripts/main" src="../../scripts/require-jquery.js"></script>
+    </body>
+</html>

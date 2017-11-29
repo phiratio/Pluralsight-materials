@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2507BC9E-4CAF-45A8-AB1F-547B1831A226}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>html5_persistent_apis</RootNamespace>
+    <AssemblyName>html5-persistent-apis</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="demos\concepts\04-knockout.html" />
+    <Content Include="demos\concepts\02-result.html" />
+    <Content Include="demos\concepts\01-iife.html" />
+    <Content Include="demos\concepts\03-mockjson.html" />
+    <Content Include="demos\filesystem\06-capacity.html" />
+    <Content Include="demos\filesystem\viewModel.js" />
+    <Content Include="demos\huge-file.txt" />
+    <Content Include="demos\indexeddb\05-performance.html" />
+    <Content Include="demos\indexeddb\06-versions.html" />
+    <Content Include="demos\libraries\lawnchairjs.html" />
+    <Content Include="demos\libraries\amplifyjs.html" />
+    <Content Include="demos\libraries\storejs.html" />
+    <Content Include="demos\storage\04-storage-event.html" />
+    <Content Include="demos\storage\localDataService.js" />
+    <Content Include="demos\storage\viewModel.js" />
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\bootstrap\bootstrap-theme.css" />
+    <Content Include="content\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="content\bootstrap\bootstrap.css" />
+    <Content Include="content\bootstrap\bootstrap.min.css" />
+    <Content Include="content\fontawesome\font-awesome.css" />
+    <Content Include="content\fontawesome\font-awesome.min.css" />
+    <Content Include="content\fonts\fontawesome-webfont.svg" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="content\fonts\fontawesome-webfont.woff" />
+    <Content Include="content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="content\fonts\fontawesome-webfont.eot" />
+    <Content Include="content\fonts\FontAwesome.otf" />
+    <Content Include="content\github-theme.css" />
+    <Content Include="content\global.css" />
+    <Content Include="demos\filesystem\localFileSystem-basic.min.js.map">
+      <DependentUpon>localFileSystem-basic.js</DependentUpon>
+    </Content>
+    <Content Include="demos\filesystem\localFileSystem.min.js.map">
+      <DependentUpon>localFileSystem.js</DependentUpon>
+    </Content>
+    <None Include="scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="demos\big-file.txt" />
+    <Content Include="demos\filesystem\01-initialization.html" />
+    <Content Include="demos\filesystem\02-directory-api.html" />
+    <Content Include="demos\filesystem\03-directory-abstractions.html" />
+    <Content Include="demos\filesystem\04-file-api.html" />
+    <Content Include="demos\filesystem\05-file-abstractions.html" />
+    <Content Include="demos\filesystem\07-file-editor.html" />
+    <Content Include="demos\filesystem\localFileSystem-basic.js" />
+    <Content Include="demos\filesystem\localFileSystem-basic.min.js" />
+    <Content Include="demos\filesystem\localFileSystem.js" />
+    <Content Include="demos\filesystem\localFileSystem.min.js" />
+    <Content Include="demos\indexeddb\01-initialization.html" />
+    <Content Include="demos\indexeddb\02-crud.html" />
+    <Content Include="demos\indexeddb\03-cursor.html" />
+    <Content Include="demos\indexeddb\04-keys.html" />
+    <Content Include="demos\indexeddb\08-capacity.html" />
+    <Content Include="demos\indexeddb\07-homes.html" />
+    <Content Include="demos\indexeddb\homesDBModel.js" />
+    <Content Include="demos\indexeddb\localDatabase.js" />
+    <Content Include="demos\indexeddb\viewModel.js" />
+    <Content Include="demos\storage\01-local-api.html" />
+    <Content Include="demos\storage\02-session-api.html" />
+    <Content Include="demos\storage\03-exceedquota.html" />
+    <Content Include="demos\storage\05-persistentform.html" />
+    <Content Include="img\course-logo-lg.png" />
+    <Content Include="img\course-logo.png" />
+    <Content Include="img\craig-shoemaker-logo.png" />
+    <Content Include="img\favicon.png" />
+    <Content Include="index.html" />
+    <None Include="scripts\amplify-vsdoc.js" />
+    <Content Include="scripts\amplify.js" />
+    <Content Include="scripts\amplify.min.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\GPL-LICENSE.txt" />
+    <Content Include="scripts\jquery-1.9.1.js" />
+    <Content Include="scripts\jquery-1.9.1.min.js" />
+    <Content Include="scripts\jquery.js" />
+    <Content Include="scripts\jquery.mockjson.js" />
+    <Content Include="scripts\jsonParser.js" />
+    <Content Include="scripts\knockout-3.0.0.debug.js" />
+    <Content Include="scripts\knockout-3.0.0.js" />
+    <Content Include="scripts\lawnchair-0.6.1.min.js" />
+    <Content Include="scripts\lawnchair-adapter-indexed-db-0.6.1.js" />
+    <Content Include="scripts\layoutMaster.js" />
+    <Content Include="scripts\main.js" />
+    <Content Include="scripts\MIT-LICENSE.txt" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\r.js" />
+    <Content Include="scripts\rainbow-custom.min.js" />
+    <Content Include="scripts\README.txt" />
+    <Content Include="scripts\require-jquery.js" />
+    <Content Include="scripts\require.js" />
+    <Content Include="scripts\result.js" />
+    <Content Include="scripts\store.min.js" />
+    <Content Include="scripts\underscore.js" />
+    <Content Include="scripts\underscore.min.js" />
+    <Content Include="scripts\jquery-1.9.1.min.map" />
+    <Content Include="scripts\underscore.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1505</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1505/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

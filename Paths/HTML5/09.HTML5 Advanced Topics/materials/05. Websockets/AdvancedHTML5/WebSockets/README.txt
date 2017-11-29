@@ -1,1 +1,0 @@
-﻿The code for the Web Socket demos are located in the WebSockets.zip file in the main demos.zip file.

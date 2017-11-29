@@ -1,0 +1,131 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="../../img/favicon.png">
+    <meta charset="utf-8" />
+    <title>$$result Module</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="../../content/fontawesome/font-awesome.css" rel="stylesheet" />
+    <link href="../../content/global.css" rel="stylesheet" media="screen">
+    <link href="../../content/github-theme.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <article>
+        <h1>$$result Module</h1>
+    </article>
+    <div id="result-stub" class="well hidden">
+    </div>
+
+        <script data-step="1"
+                data-listingonly="true"
+                title=""
+                data-label="Basic Syntax">
+            var step1 = function () {
+                //---
+                var $$result = (function () {
+
+                    var _result = {};
+
+                    _result.logRaw = function (contents) {
+                        $('#result').append(contents);
+                    };
+
+                    _result.log = function (contents) {
+
+                        if (_.isArray(contents)) {
+                            _.each(contents, function (e, i, l) {
+                                _result.log(e);
+                            });
+                        } else {
+                            if (_.isObject(contents)) {
+                                _result.logObject(contents);
+                            } else {
+                                console.log(contents.toString().replace(/(<([^>]+)>)/ig, ""));
+                                _result.logRaw('<li>' + contents + '</li>');
+                            }
+                        }
+
+                    };
+
+                    _result.logObject = function (obj) {
+
+                        console.dir(obj);
+
+                        var
+                            keys = _.keys(obj),
+                            i = 0,
+                            markup = '<p class="code">{<br />';
+
+                        _.each(obj, function (value, key, list) {
+                            markup += ' &nbsp;&nbsp;&nbsp;&nbsp;' + key + ': ' + '&quot;' + value + '&quot;';
+                            markup += (i === keys.length - 1) ? '<br/>' : ', <br />';
+                            i++
+                        });
+
+                        markup += '}</p>'
+
+                        _result.logRaw(markup);
+                    };
+
+                    _result.hr = function () {
+                        _result.logRaw('<hr />');
+                    };
+
+                    _result.logBold = function (contents, contents2) {
+                        if (contents2) {
+                            _result.logRaw('<br /><b>' + contents + ': </b>' + contents2);
+                        } else {
+                            _result.logRaw('<br /><b>' + contents + '</b>');
+                        }
+                    };
+
+                    return {
+                        log: _result.log,
+                        logRaw: _result.logRaw,
+                        hr: _result.hr,
+                        logBold: _result.logBold
+                    };
+                })();
+                //---
+            }
+        </script>
+        <script data-step="2"
+                title=""
+                data-label="Logging">
+            var step2 = function () {
+                //---
+                $$result.log('<strong>Make sure</strong> to check the console window!');
+
+                var arr = [1, 2, 3];
+
+                $$result.log(arr);
+
+                var obj = {
+                    name: 'Craig Shoemaker',
+                    twitter: '@craigshoemaker'
+                };
+
+                $$result.log(obj);
+
+                $$result.hr();
+
+                $$result.logRaw('<h1>Hello!</h1>');
+
+                $$result.logBold('Important message');
+
+                $$result.logBold('Label', 'value');
+                //---
+            }
+        </script>
+
+    <script data-label="Command Object Mapping">
+        var _commands = {
+            currentStep: 0,
+            step1: step1,
+            step2: step2
+        };
+    </script>
+    <script data-main="../../scripts/main" src="../../scripts/require-jquery.js"></script>
+</body>
+</html>
