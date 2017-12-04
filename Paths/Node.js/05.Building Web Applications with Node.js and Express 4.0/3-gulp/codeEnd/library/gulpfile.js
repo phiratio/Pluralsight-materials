@@ -38,7 +38,7 @@ gulp.task('inject', function () {
         .pipe(inject(injectSrc, injectOptions))
         .pipe(gulp.dest('./src/views'));
 
-})
+});
 
 gulp.task('serve', ['style', 'inject'], function () {
     var options = {
@@ -48,10 +48,10 @@ gulp.task('serve', ['style', 'inject'], function () {
             'PORT': 3000
         },
         watch: jsFiles
-    }
+    };
 
     return nodemon(options)
         .on('restart', function (ev) {
             console.log('Restarting....');
         })
-})
+});
